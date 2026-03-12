@@ -143,6 +143,26 @@
                 "managed": "Actual costs are systematically tracked against TCO estimates for all major investments at defined intervals (e.g., annually). Significant variances trigger root cause analysis and model refinement.",
                 "optimized": "Continuous actual-vs-estimate tracking is automated and feeds back into TCO models to improve future accuracy. Variance analysis is a standard part of portfolio reviews and informs investment governance."
               }
+            },
+            {
+              "id": "ct-3-4",
+              "text": "How effectively does the organization incorporate opportunity costs and risk-adjusted cost factors into TCO calculations for mission-critical systems?",
+              "rubric": {
+                "ad_hoc": "Opportunity costs and risk factors are not considered in TCO. Calculations are limited to direct expenditures without accounting for downtime, security incidents, or missed mission outcomes.",
+                "foundational": "Opportunity costs are acknowledged qualitatively in business cases but not quantified. Risk factors such as vendor lock-in or technology obsolescence are discussed but not formally modeled.",
+                "managed": "TCO models include quantified risk factors (e.g., probability-weighted downtime costs, security breach impact estimates) and opportunity costs. Models are aligned with OMB Circular A-94 guidance on cost-benefit analysis.",
+                "optimized": "Risk-adjusted TCO models are standard practice, incorporating Monte Carlo simulations or similar techniques. Opportunity cost analysis is integrated with agency mission impact assessments and informs OMB Exhibit 300 submissions."
+              }
+            },
+            {
+              "id": "ct-3-5",
+              "text": "To what extent does the organization account for technical debt in its TCO models and IT cost reporting?",
+              "rubric": {
+                "ad_hoc": "Technical debt is not recognized as a cost category. Legacy system maintenance costs are absorbed into operational budgets without visibility into their impact on total cost of ownership.",
+                "foundational": "Technical debt is acknowledged informally but not quantified. Some teams track workaround effort or maintenance hours, but there is no systematic approach to measuring technical debt costs.",
+                "managed": "Technical debt is quantified and included in TCO models for major systems. Metrics such as maintenance cost ratio, defect rates, and integration complexity are tracked and reported to IT leadership.",
+                "optimized": "Technical debt is actively managed as a portfolio-level concern with dedicated remediation budgets. TCO models include forward-looking technical debt projections that inform modernization prioritization and budget requests."
+              }
             }
           ]
         },
@@ -178,6 +198,16 @@
                 "foundational": "Basic IT spending policies exist (e.g., approval thresholds) but enforcement is inconsistent. Shadow IT spending occurs with limited visibility or control.",
                 "managed": "IT spending policies are documented, communicated, and consistently enforced through automated workflows. Shadow IT is actively identified and brought under governance.",
                 "optimized": "IT financial policies are comprehensive, regularly updated, and integrated into procurement and project management systems. Policy compliance is monitored automatically with exception reporting and continuous improvement."
+              }
+            },
+            {
+              "id": "ct-4-4",
+              "text": "How well does the organization integrate IT financial management with enterprise-wide financial governance structures, including CFO-led processes?",
+              "rubric": {
+                "ad_hoc": "IT financial management operates independently from enterprise finance. The CFO organization has limited visibility into IT spending decisions, and IT budget processes are disconnected from agency-wide financial planning.",
+                "foundational": "Basic coordination exists between IT finance and the CFO organization (e.g., shared budget templates), but integration is limited. IT financial data is reported separately and reconciled manually with enterprise financial systems.",
+                "managed": "IT financial management is formally integrated with enterprise financial governance. The CIO and CFO collaborate on IT budget development, and IT cost data flows into enterprise financial reporting through shared systems and processes.",
+                "optimized": "IT financial governance is fully embedded in enterprise financial management. Joint CIO-CFO oversight ensures IT spending aligns with agency strategic objectives. Integrated reporting provides unified views of IT and mission spending per OMB A-11 requirements."
               }
             }
           ]
@@ -261,6 +291,26 @@
                 "managed": "TBM taxonomy data is the primary source for federal IT reporting. Mappings between TBM categories and federal reporting requirements are documented and maintained, reducing manual effort.",
                 "optimized": "Federal reporting is automatically generated from TBM data with minimal manual intervention. The organization serves as a model for taxonomy-to-reporting integration and contributes to government-wide standards development."
               }
+            },
+            {
+              "id": "ct-6-4",
+              "text": "How well does the organization map IT spending to the TBM Council's standard IT tower and sub-tower taxonomy for benchmarking and reporting purposes?",
+              "rubric": {
+                "ad_hoc": "No mapping to standard IT towers exists. IT spending categories are internally defined and cannot be compared to industry benchmarks or peer agencies.",
+                "foundational": "A partial mapping to TBM towers exists for major spending categories (e.g., end-user computing, hosting), but sub-tower detail is incomplete. Mapping is maintained in spreadsheets and updated infrequently.",
+                "managed": "IT spending is mapped to the full TBM tower and sub-tower taxonomy. Mappings are maintained in the TBM tool and updated as spending patterns change. Tower-level reporting supports FITARA scorecard benchmarking.",
+                "optimized": "Complete, validated tower/sub-tower mapping is automated and continuously maintained. The organization actively contributes to TBM Council taxonomy refinement and uses tower-level data for strategic portfolio decisions and OMB reporting."
+              }
+            },
+            {
+              "id": "ct-6-5",
+              "text": "To what extent does the organization classify IT spending by business-of-IT categories (run, grow, transform) to support portfolio analysis?",
+              "rubric": {
+                "ad_hoc": "IT spending is not categorized by run/grow/transform or any equivalent framework. All IT spending is treated as a single undifferentiated pool for budgeting purposes.",
+                "foundational": "High-level categorization exists (e.g., operational vs. project spending) but does not align to TBM run/grow/transform definitions. Categorization is approximate and applied inconsistently across the portfolio.",
+                "managed": "IT spending is systematically categorized into run, grow, and transform using clear definitions aligned with TBM taxonomy. Categories are applied at the investment level and reported to leadership for portfolio balance analysis.",
+                "optimized": "Run/grow/transform categorization is automated, continuously updated, and integrated with strategic planning. Leadership uses category analysis to shift investment mix toward transformation goals aligned with the President's Management Agenda."
+              }
             }
           ]
         },
@@ -297,6 +347,16 @@
                 "managed": "Labor utilization is measured across operational and project work for both federal and contractor staff. Productivity metrics (e.g., incidents resolved per analyst, features delivered per sprint) are tracked and reported.",
                 "optimized": "Comprehensive utilization and productivity analytics drive workforce optimization. Benchmarking against peers identifies improvement opportunities. Predictive models support capacity planning and inform hiring and contracting decisions."
               }
+            },
+            {
+              "id": "ct-7-4",
+              "text": "How effectively does the organization track and manage the cost of contractor and outsourced IT labor relative to federal employee labor?",
+              "rubric": {
+                "ad_hoc": "Contractor and outsourced IT labor costs are tracked only at the contract level. No comparison or analysis of contractor vs. federal employee cost-effectiveness is performed.",
+                "foundational": "Basic cost comparisons between contractor and federal employee labor exist for some roles, but analysis is limited to hourly rate comparisons without accounting for overhead, benefits, and management costs.",
+                "managed": "Comprehensive labor cost models compare fully-loaded costs of contractors, federal employees, and outsourced services. Analysis informs insourcing/outsourcing decisions and is aligned with FITARA workforce planning requirements.",
+                "optimized": "Labor cost optimization is continuous, with automated tracking of blended labor costs by role, skill level, and delivery model. Analysis supports strategic workforce planning and is integrated with OMB MAX and human capital reporting."
+              }
             }
           ]
         },
@@ -332,6 +392,26 @@
                 "foundational": "Some cloud optimization actions are taken (e.g., purchasing reserved instances), but savings are estimated rather than validated against baseline costs.",
                 "managed": "Cloud cost optimization actions are systematically tracked with documented baselines and validated savings. Regular reports show optimization coverage, actions taken, and realized savings by category.",
                 "optimized": "Automated cloud optimization tracking continuously measures savings from all optimization levers (reserved capacity, spot/preemptible instances, right-sizing, scheduling, architecture changes). A closed-loop process ensures recommendations are acted upon and savings are validated."
+              }
+            },
+            {
+              "id": "ct-8-4",
+              "text": "How well does the organization implement FinOps practices to continuously optimize cloud spending across IaaS, PaaS, and SaaS?",
+              "rubric": {
+                "ad_hoc": "No FinOps practices exist. Cloud spending is managed reactively, with cost overruns discovered only during monthly or quarterly financial reviews.",
+                "foundational": "Basic cloud cost monitoring is in place (e.g., billing alerts, monthly spend reviews), but optimization actions are ad hoc. Reserved instance or savings plan adoption is minimal.",
+                "managed": "A FinOps practice is established with defined roles, regular optimization cycles, and automated rightsizing recommendations. Reserved capacity purchases are strategically planned, and waste is actively identified and eliminated.",
+                "optimized": "Mature FinOps practice operates continuously with real-time cost optimization. Automated policies enforce tagging, rightsizing, and scheduling. Cloud unit economics are benchmarked against peers and inform architectural decisions. FinOps is integrated with FedRAMP and cloud smart strategy."
+              }
+            },
+            {
+              "id": "ct-8-5",
+              "text": "To what extent does the organization have visibility into cloud spending commitments, including reserved instances, enterprise agreements, and committed use discounts?",
+              "rubric": {
+                "ad_hoc": "No centralized visibility into cloud spending commitments exists. Reserved instances and enterprise agreements are managed by individual teams without coordination.",
+                "foundational": "Basic tracking of major cloud commitments exists, but coverage and utilization data are gathered manually. Commitment purchase decisions are not coordinated across business units.",
+                "managed": "Cloud commitments are centrally tracked with automated utilization monitoring. A cross-functional team manages commitment purchases to optimize coverage and minimize waste across the organization.",
+                "optimized": "Cloud commitment management is fully optimized with automated portfolio analysis, predictive utilization modeling, and dynamic rebalancing. Savings from commitment strategies are tracked and reported as part of IT cost optimization metrics."
               }
             }
           ]
@@ -433,6 +513,16 @@
                 "managed": "RTB and CTB spending are clearly defined, consistently categorized, and reported separately. The organization sets target ratios and monitors actual spending against targets.",
                 "optimized": "RTB/CTB analysis includes sub-categories (e.g., Run/Grow/Transform), is automated, and drives strategic conversations about shifting investment toward innovation. Trends are analyzed over multiple fiscal years."
               }
+            },
+            {
+              "id": "bf-1-5",
+              "text": "How well does the organization align IT budget formulation with agency strategic plans, annual performance plans, and the President's Budget submission timeline?",
+              "rubric": {
+                "ad_hoc": "IT budget formulation is disconnected from strategic planning cycles. Budget requests are developed independently of agency strategic goals and submitted without clear linkage to mission outcomes.",
+                "foundational": "IT budget requests reference strategic goals at a high level but detailed alignment is lacking. Budget formulation follows OMB A-11 timelines but strategic linkage is superficial.",
+                "managed": "IT budget formulation is formally integrated with strategic planning. Each budget line item maps to specific strategic objectives and performance measures. The process follows OMB A-11 guidance with clear CIO involvement per FITARA.",
+                "optimized": "IT budget formulation is a strategic exercise that drives mission outcomes. Zero-based budgeting elements ensure every dollar is justified against strategic priorities. The CIO has full authority over IT budget formulation as required by FITARA Section 831."
+              }
             }
           ]
         },
@@ -468,6 +558,26 @@
                 "foundational": "Major commitments (e.g., large contracts, capital projects) are tracked, but smaller commitments and recurring obligations may not be captured. Commitment data is maintained in spreadsheets.",
                 "managed": "All significant commitments are tracked in financial or procurement systems, providing a clear view of obligated vs. available budget. Commitment reports are produced monthly and reviewed with budget owners.",
                 "optimized": "Real-time commitment tracking is integrated with budget and forecast systems. Automated alerts warn when commitments approach budget limits. Commitment data drives accurate forecasting and year-end planning."
+              }
+            },
+            {
+              "id": "bf-2-4",
+              "text": "How effectively does the organization use variance analysis to improve future budget accuracy and forecasting models?",
+              "rubric": {
+                "ad_hoc": "Budget variances are noted but not analyzed for root causes. The same budgeting assumptions are applied year after year regardless of actual spending patterns.",
+                "foundational": "Post-year variance reviews are conducted for major budget lines, but findings are not systematically incorporated into future forecasting models. Institutional knowledge drives adjustments rather than data.",
+                "managed": "Variance analysis feeds directly into forecasting model refinement. Root cause categorization (e.g., demand changes, price fluctuations, scope creep) enables targeted improvements to budget accuracy over time.",
+                "optimized": "Predictive analytics and machine learning are applied to historical variance data to continuously improve forecasting accuracy. Budget models are backtested against actuals, and accuracy metrics are tracked and reported to leadership."
+              }
+            },
+            {
+              "id": "bf-2-5",
+              "text": "To what extent does the organization provide real-time or near-real-time budget execution visibility to program managers and IT leaders?",
+              "rubric": {
+                "ad_hoc": "Budget execution data is available only through periodic reports (monthly or quarterly). Program managers cannot access current spending data without requesting ad hoc reports from the budget office.",
+                "foundational": "Monthly budget execution reports are distributed to program managers, but data is typically 2-4 weeks old. Drill-down into spending details requires manual analysis.",
+                "managed": "Near-real-time budget execution dashboards are available to program managers and IT leaders. Spending data is updated weekly or more frequently, with drill-down capability by cost category, project, and vendor.",
+                "optimized": "Real-time budget execution visibility is available through self-service dashboards. Automated alerts notify managers of spending anomalies. Integration with procurement and accounts payable systems provides complete obligation and expenditure tracking."
               }
             }
           ]
@@ -505,6 +615,16 @@
                 "managed": "Budget processes and financial models account for the CapEx/OpEx mix shift. Cloud and subscription spending is tracked, forecasted, and reported alongside traditional spending categories.",
                 "optimized": "The organization has fully adapted its financial management to hybrid spending models. Automated tools track and optimize the CapEx/OpEx mix across all delivery models, with clear financial governance for each."
               }
+            },
+            {
+              "id": "bf-3-4",
+              "text": "How effectively does the organization manage the transition of capital investments to operational sustainment budgets upon project completion?",
+              "rubric": {
+                "ad_hoc": "No formal process exists for transitioning capital investments to operational budgets. Completed projects often face funding gaps because sustainment costs were not planned during the capital investment phase.",
+                "foundational": "Ad hoc transitions occur for major projects, but sustainment cost estimates are often inaccurate. Operational budgets absorb new systems without corresponding funding increases, creating resource constraints.",
+                "managed": "A formal capital-to-operational transition process is documented and followed for all investments. Sustainment costs are estimated during business case development and incorporated into out-year operational budget forecasts.",
+                "optimized": "Capital-to-operational transitions are seamlessly managed through integrated lifecycle budgeting. Sustainment costs are validated against actuals from similar deployments, and operational budgets are automatically adjusted upon milestone completion."
+              }
             }
           ]
         },
@@ -540,6 +660,16 @@
                 "foundational": "A consolidated view of multi-cloud spending exists but is maintained manually. Governance policies (e.g., approved services, spending limits) vary by provider and are inconsistently enforced.",
                 "managed": "Multi-cloud spending is consolidated through a cloud management platform or unified reporting. Consistent governance policies apply across providers, and cost optimization is coordinated across clouds.",
                 "optimized": "A unified cloud financial management platform provides real-time visibility, automated optimization, and consistent governance across all cloud providers. Workload placement decisions consider cost optimization across clouds."
+              }
+            },
+            {
+              "id": "bf-4-4",
+              "text": "How well does the organization budget for cloud consumption variability and manage the financial risks of elastic, usage-based pricing models?",
+              "rubric": {
+                "ad_hoc": "Cloud budgets are based on fixed estimates without accounting for consumption variability. Unexpected cloud cost spikes create budget shortfalls and unplanned reprogramming requests.",
+                "foundational": "Cloud budgets include basic buffers for variability, but contingency amounts are arbitrary rather than data-driven. Cost spikes are managed reactively through spending controls or additional funding requests.",
+                "managed": "Cloud budgets incorporate consumption-based forecasting models that account for seasonal patterns, growth trends, and planned workload migrations. Financial guardrails (spending limits, automated alerts) prevent unexpected overruns.",
+                "optimized": "Cloud financial management is fully mature with predictive consumption models, automated scaling policies aligned with budget constraints, and real-time financial governance. Reserved capacity and spot instance strategies are optimized to minimize cost variability."
               }
             }
           ]
@@ -623,6 +753,16 @@
                 "managed": "IT training budgets are aligned with strategic workforce development plans and skills gap analyses. Spending is tracked by skill area and linked to certification achievements and capability improvements.",
                 "optimized": "Training investment is treated strategically, with ROI analysis informing spending decisions. Automated tracking links training investments to capability improvements, retention, and mission outcomes. Budget models optimize the mix of training modalities."
               }
+            },
+            {
+              "id": "bf-6-4",
+              "text": "How effectively does the organization forecast IT workforce costs including hiring pipelines, attrition, and skills gap remediation?",
+              "rubric": {
+                "ad_hoc": "IT workforce budgets are based on current headcount with flat-rate adjustments. No forecasting of attrition, hiring timelines, or skills gap costs is performed.",
+                "foundational": "Basic workforce cost forecasts account for known vacancies and planned hires, but attrition modeling and skills gap analysis are not incorporated. Contractor surge costs frequently exceed budgeted amounts.",
+                "managed": "Workforce cost forecasting includes attrition modeling, hiring pipeline analysis, and skills gap remediation costs (training, reskilling, contractor augmentation). Forecasts are updated quarterly and aligned with human capital plans.",
+                "optimized": "Predictive workforce analytics drive budget forecasting, incorporating labor market trends, retirement wave projections, and emerging skill requirements. Workforce budgets are dynamically linked to IT modernization plans and OPM workforce planning guidance."
+              }
             }
           ]
         },
@@ -658,6 +798,16 @@
                 "foundational": "High-level cost estimates exist for major transitions, but detailed financial modeling of transition phases, parallel running costs, and decommission savings is not performed.",
                 "managed": "Comprehensive financial models project the multi-year budget impact of technology transitions, including migration costs, parallel operations, decommission savings, and steady-state cost changes.",
                 "optimized": "Sophisticated transition financial models are continuously updated with actual cost data. Scenario modeling evaluates acceleration, deceleration, and alternative approaches. Lessons learned from completed transitions improve forecasting accuracy for future initiatives."
+              }
+            },
+            {
+              "id": "bf-7-4",
+              "text": "How well does the organization analyze and optimize the balance between sustaining existing systems (run-the-business) and investing in new capabilities (change-the-business)?",
+              "rubric": {
+                "ad_hoc": "No analysis of run vs. change investment balance exists. The majority of IT budget is consumed by operations and maintenance with no strategic assessment of whether this ratio is appropriate.",
+                "foundational": "High-level run/change analysis is performed during annual budget formulation, but ratios are estimated rather than precisely measured. Leadership has limited ability to shift spending from run to change.",
+                "managed": "Run/change/transform ratios are precisely measured and tracked over time. Budget scenarios model the impact of shifting investment mix on mission outcomes. The organization has a stated target ratio aligned with modernization goals.",
+                "optimized": "Investment mix optimization is continuous, with automated categorization and trend analysis. The organization actively manages its run/change ratio toward strategic targets, using techniques like application rationalization and cloud migration to free resources for innovation."
               }
             }
           ]
@@ -695,6 +845,16 @@
                 "managed": "IT financial impact assessments are a standard component of organizational change planning. Models project costs of IT integration, migration, service changes, and workforce adjustments associated with reorganizations.",
                 "optimized": "IT budget agility enables rapid adaptation to organizational changes. Pre-built financial models for common scenarios (bureau consolidation, mission transfer, workforce restructuring) accelerate planning. Post-change cost tracking validates projections and improves future estimates."
               }
+            },
+            {
+              "id": "bf-8-4",
+              "text": "How effectively does the organization estimate and budget for technology refresh cycles across its hardware and software portfolio?",
+              "rubric": {
+                "ad_hoc": "Technology refresh is not budgeted proactively. Hardware and software replacements are funded reactively when failures occur or vendor support ends, leading to emergency procurement actions.",
+                "foundational": "Basic technology refresh schedules exist for major asset categories, but budget estimates are rough and not linked to asset lifecycle data. Refresh funding competes with other priorities without a dedicated mechanism.",
+                "managed": "Technology refresh budgets are based on detailed asset lifecycle data including age, warranty status, and end-of-support dates. Multi-year refresh plans are integrated into the IT budget with appropriate lead times for procurement.",
+                "optimized": "Technology refresh is fully lifecycle-managed with automated age-out projections, procurement pipeline scheduling, and budget integration. Refresh investments are optimized through strategies like staggered replacement, refurbishment, and cloud migration alternatives."
+              }
             }
           ]
         },
@@ -730,6 +890,16 @@
                 "foundational": "Basic awareness exists that demand drives costs, but quantitative models linking demand changes to budget impact are not available. Budget requests for demand-driven growth lack analytical support.",
                 "managed": "Demand-to-cost models quantify the budget impact of demand changes for major IT services. Models incorporate variable and fixed cost components to estimate marginal costs of demand growth or reduction.",
                 "optimized": "Comprehensive demand-to-cost models cover all significant services and are continuously updated with actual cost and consumption data. Leaders can model the budget impact of demand scenarios in real time, enabling proactive planning and informed demand management decisions."
+              }
+            },
+            {
+              "id": "bf-9-4",
+              "text": "How well does the organization use scenario planning to prepare for budget uncertainties including continuing resolutions, sequestration, and mid-year rescissions?",
+              "rubric": {
+                "ad_hoc": "No scenario planning for budget uncertainty exists. Continuing resolutions and funding changes cause reactive, disruptive spending adjustments.",
+                "foundational": "Basic contingency plans exist for continuing resolutions (e.g., spending at prior-year levels), but detailed scenario plans for sequestration or rescission are not developed.",
+                "managed": "Multiple budget scenarios are developed and maintained, including CR operations, sequestration impacts, and mid-year rescission responses. Each scenario identifies specific spending adjustments and their mission impacts.",
+                "optimized": "Comprehensive scenario planning is integrated into budget formulation and execution. Automated models assess the impact of funding changes across the IT portfolio in real time, enabling rapid, informed decisions that minimize mission disruption."
               }
             }
           ]
@@ -795,6 +965,16 @@
                 "managed": "A curated set of IT metrics is designed for leadership decision-making, covering cost efficiency, service performance, investment health, and risk posture. Metrics are presented with context and recommendations.",
                 "optimized": "Executive IT dashboards provide real-time, interactive access to decision-relevant metrics. Predictive indicators alert leadership to emerging issues. Drill-down capability enables leaders to explore root causes. Metrics are directly linked to strategic objectives and mission outcomes."
               }
+            },
+            {
+              "id": "bm-1-6",
+              "text": "How effectively does the organization use benchmarking data to set quantitative performance targets for IT service delivery?",
+              "rubric": {
+                "ad_hoc": "No performance targets are derived from benchmarking data. IT service performance expectations are based on historical baselines or vendor promises without external reference points.",
+                "foundational": "Benchmarking data occasionally informs target-setting for a few visible metrics, but the practice is not systematic. Targets may reference industry averages without accounting for organizational context.",
+                "managed": "Benchmarking data systematically informs performance targets across major IT service areas. Targets account for organizational maturity, peer group characteristics, and improvement trajectory. Targets are reviewed and updated annually.",
+                "optimized": "Performance targets are dynamically calibrated using real-time benchmarking data from multiple sources. Stretch targets are set at top-quartile peer performance, and continuous improvement goals are embedded in service-level agreements."
+              }
             }
           ]
         },
@@ -841,6 +1021,16 @@
                 "managed": "Active participation in government-wide benchmarking programs includes regular data submissions, engagement in working groups, and sharing of practices. The organization uses collective data to inform its own improvement efforts.",
                 "optimized": "The organization is a leader in government-wide benchmarking collaboration, contributing data, methodology expertise, and best practices. It champions cross-agency improvement initiatives and helps establish benchmarking standards for the government IT community."
               }
+            },
+            {
+              "id": "bm-2-5",
+              "text": "To what extent does the organization participate in formal benchmarking consortia or peer exchange programs with other federal agencies?",
+              "rubric": {
+                "ad_hoc": "No participation in benchmarking consortia or peer exchanges. The organization operates in isolation with no structured mechanism for comparing practices with peer agencies.",
+                "foundational": "Informal peer comparisons occur through professional networks or conferences, but the organization does not participate in formal benchmarking programs or data-sharing agreements.",
+                "managed": "The organization participates in at least one formal benchmarking program (e.g., TBM Council, industry analyst benchmarking service) and regularly exchanges data with peer agencies through structured forums.",
+                "optimized": "Active participation in multiple benchmarking consortia with reciprocal data-sharing agreements. The organization leads or co-leads peer exchange initiatives and contributes to government-wide benchmarking databases maintained by GSA or OMB."
+              }
             }
           ]
         },
@@ -876,6 +1066,16 @@
                 "foundational": "Savings are estimated at initiative inception but not tracked through implementation. Validation against financial actuals is rare, and the difference between cost avoidance and hard savings is unclear.",
                 "managed": "A formal savings tracking methodology exists with defined baselines, measurement periods, and validation against financial actuals. Hard savings, soft savings, and cost avoidance are distinguished and reported separately.",
                 "optimized": "Automated savings tracking integrates with financial systems to continuously validate realized savings. A savings library catalogues validated opportunities by category. Historical accuracy of savings estimates informs future projections."
+              }
+            },
+            {
+              "id": "bm-3-4",
+              "text": "How well does the organization track and analyze multi-year trends in its IT spending and performance benchmarks to identify improvement trajectories?",
+              "rubric": {
+                "ad_hoc": "No trend analysis of benchmarking data is performed. Each benchmarking exercise is treated as a point-in-time snapshot without historical context.",
+                "foundational": "Year-over-year comparisons are made for a few key metrics, but systematic multi-year trend analysis is not performed. It is unclear whether the organization is improving, declining, or stagnating relative to peers.",
+                "managed": "Multi-year trend analysis is performed for all benchmarked metrics, showing improvement trajectories relative to peer group performance. Trend data informs investment priorities and is included in strategic planning documents.",
+                "optimized": "Comprehensive trend analytics include predictive modeling of future performance trajectories. Trend analysis is automated and integrated into executive dashboards. The organization uses trends to proactively adjust strategies before performance gaps widen."
               }
             }
           ]
@@ -913,6 +1113,16 @@
                 "managed": "IT workforce metrics (blended rates, staff ratios, contractor percentages, skill premiums) are regularly benchmarked against government and industry peers using recognized data sources.",
                 "optimized": "Comprehensive workforce benchmarking drives strategic workforce decisions. Analytics compare total workforce cost-effectiveness including productivity metrics. Results inform workforce planning, sourcing strategy, and compensation competitiveness assessments."
               }
+            },
+            {
+              "id": "bm-4-4",
+              "text": "How effectively does the organization use IT Dashboard data and FITARA scorecard results as benchmarks for improving its own IT management practices?",
+              "rubric": {
+                "ad_hoc": "IT Dashboard data and FITARA scorecard results are treated as compliance artifacts rather than benchmarking tools. No effort is made to compare the organization's scores with peer agencies.",
+                "foundational": "FITARA scorecard grades are reviewed when released, and IT Dashboard data is occasionally referenced, but no systematic benchmarking against peer agencies occurs. Improvement actions are not data-driven.",
+                "managed": "IT Dashboard metrics and FITARA scorecard criteria are actively benchmarked against peer agencies. Gap analysis identifies specific areas for improvement, and action plans are developed to address lower-performing metrics.",
+                "optimized": "The organization uses IT Dashboard and FITARA scorecard data as core benchmarking inputs, supplemented with additional peer agency data. A continuous improvement program tracks progress toward top-tier FITARA grades across all scorecard categories."
+              }
             }
           ]
         },
@@ -949,6 +1159,16 @@
                 "managed": "Innovation and modernization spending is tracked as a percentage of total IT budget and benchmarked against peer agencies. Portfolio analysis identifies opportunities to shift spending toward transformation.",
                 "optimized": "Innovation investment benchmarking is comprehensive, covering spending levels, portfolio mix, and outcomes achieved. The organization actively manages its innovation portfolio to achieve top-quartile investment levels and demonstrable mission improvements."
               }
+            },
+            {
+              "id": "bm-5-4",
+              "text": "How well does the organization benchmark its IT investment outcomes (mission value delivered) in addition to cost and operational efficiency metrics?",
+              "rubric": {
+                "ad_hoc": "Benchmarking focuses exclusively on cost metrics. No effort is made to benchmark the mission value or business outcomes delivered by IT investments.",
+                "foundational": "Some qualitative comparisons of IT value delivery are made through case studies or peer discussions, but formal outcome-based benchmarking is not performed.",
+                "managed": "The organization benchmarks IT investment outcomes using mission-relevant metrics (e.g., citizen service delivery times, processing accuracy, employee productivity gains). Value benchmarking is included alongside cost benchmarking.",
+                "optimized": "Comprehensive value benchmarking compares mission outcomes, citizen experience, and operational effectiveness across peer agencies. Value metrics are weighted equally with cost metrics in overall benchmarking assessments and inform investment prioritization."
+              }
             }
           ]
         },
@@ -984,6 +1204,16 @@
                 "foundational": "Some publicly available data is reviewed occasionally (e.g., IT Dashboard spending data for peer agencies), but no systematic analysis is performed.",
                 "managed": "Publicly available government IT data is regularly analyzed to benchmark spending, contract costs, and service levels. Data from multiple sources is correlated to build comprehensive peer profiles.",
                 "optimized": "The organization has automated processes to ingest, normalize, and analyze publicly available government IT data. Insights from public data complement formal benchmarking programs and inform strategic planning, acquisition strategy, and congressional communications."
+              }
+            },
+            {
+              "id": "bm-6-4",
+              "text": "How effectively does the organization leverage automated tools and platforms to streamline benchmarking data collection, normalization, and analysis?",
+              "rubric": {
+                "ad_hoc": "Benchmarking data is collected manually through spreadsheets and ad hoc surveys. Data normalization is inconsistent, making valid comparisons difficult and time-consuming.",
+                "foundational": "Some automation exists for benchmarking data collection (e.g., exports from financial systems), but normalization and analysis remain manual. Tools are not integrated with benchmarking data sources.",
+                "managed": "Automated tools support benchmarking data collection and normalization from multiple internal systems. Analysis templates standardize comparisons and produce consistent outputs for leadership review.",
+                "optimized": "Integrated benchmarking platforms automatically ingest data from financial, operational, and service management systems. Normalized benchmarks are available on-demand through self-service dashboards with drill-down and peer comparison capabilities."
               }
             }
           ]
@@ -1085,6 +1315,16 @@
                 "managed": "Every cataloged service has a designated owner with documented accountability for service performance, cost management, lifecycle decisions, and stakeholder satisfaction. Service owners participate in portfolio governance.",
                 "optimized": "Service ownership is a mature practice with empowered owners who manage services as products. Owners have P&L-like accountability, make investment decisions within governance guardrails, and drive continuous improvement. Service ownership is recognized as a career path."
               }
+            },
+            {
+              "id": "sp-1-6",
+              "text": "How effectively does the organization maintain accurate service dependencies and relationship mapping within its IT service catalog?",
+              "rubric": {
+                "ad_hoc": "Service dependencies are not documented. When a service experiences an outage or change, the downstream impacts on other services and business processes are unknown until they manifest.",
+                "foundational": "Some critical service dependencies are documented informally, but the mapping is incomplete and not maintained. Impact analysis during changes or incidents relies on institutional knowledge of key personnel.",
+                "managed": "Service dependencies are systematically mapped and maintained in the service catalog or a CMDB. Dependency information supports change impact analysis, incident management, and business continuity planning.",
+                "optimized": "Service dependency maps are automated, continuously validated against actual traffic and integration patterns, and integrated with monitoring tools. Real-time dependency visualization supports rapid incident response and proactive capacity planning."
+              }
             }
           ]
         },
@@ -1120,6 +1360,26 @@
                 "foundational": "Periodic surveys or post-incident satisfaction ratings are collected, but response rates are low and results are not systematically analyzed or acted upon.",
                 "managed": "Regular customer satisfaction measurement is performed through multiple channels (surveys, focus groups, service reviews). Results are analyzed by service, reported to leadership, and drive improvement plans.",
                 "optimized": "Continuous experience monitoring combines survey data, behavioral analytics, and sentiment analysis. Customer satisfaction metrics are integrated into service management KPIs and influence investment priorities."
+              }
+            },
+            {
+              "id": "sp-2-4",
+              "text": "How well does the organization align IT service levels with federal mission requirements and citizen-facing service delivery standards?",
+              "rubric": {
+                "ad_hoc": "IT service levels are set based on technical capability rather than mission requirements. No connection exists between SLAs and the quality of citizen-facing service delivery.",
+                "foundational": "Some high-visibility citizen-facing services have defined service levels, but alignment between IT SLAs and mission-specific requirements is inconsistent. Service level targets are primarily technology-focused.",
+                "managed": "IT service levels are formally aligned with mission requirements and citizen-facing service standards. SLA targets for citizen-facing systems reflect 21st Century IDEA Act expectations and are reviewed with mission owners.",
+                "optimized": "IT service levels are dynamically managed based on mission priority and citizen demand patterns. Real-time SLA monitoring is integrated with agency performance reporting. Service levels for citizen-facing services exceed industry benchmarks."
+              }
+            },
+            {
+              "id": "sp-2-5",
+              "text": "To what extent does the organization conduct regular service level reviews with business stakeholders and use results to drive service improvements?",
+              "rubric": {
+                "ad_hoc": "Service level reviews are not conducted. Business stakeholders are unaware of IT service performance targets or actual performance levels.",
+                "foundational": "Annual or ad hoc service level reviews occur for some services, but participation from business stakeholders is limited. Review outcomes rarely drive concrete service improvement actions.",
+                "managed": "Regular (monthly or quarterly) service level reviews are conducted with business stakeholders for all major services. Reviews include performance data, trend analysis, and agreed-upon improvement actions with timelines.",
+                "optimized": "Continuous service level management is embedded in the operating model. Real-time performance dashboards are available to business stakeholders. Automated escalation processes trigger improvement actions when SLAs trend toward breach thresholds."
               }
             }
           ]
@@ -1157,6 +1417,16 @@
                 "managed": "Regular portfolio analytics assess service utilization, redundancy, cost efficiency, and business alignment. Rationalization roadmaps are developed and executed based on findings.",
                 "optimized": "Automated portfolio analytics continuously monitor the service landscape. Machine learning identifies consolidation opportunities and predicts service demand trends. Portfolio optimization is a continuous, data-driven practice."
               }
+            },
+            {
+              "id": "sp-3-4",
+              "text": "How effectively does the organization track and report IT service consumption patterns to enable demand forecasting and capacity planning?",
+              "rubric": {
+                "ad_hoc": "IT service consumption is not tracked at a granular level. Capacity planning is based on rough estimates and procurement cycles rather than actual consumption data.",
+                "foundational": "Basic consumption metrics are collected for some services (e.g., storage usage, user counts), but data is not systematically analyzed for demand forecasting or capacity planning.",
+                "managed": "Consumption data is collected for all major IT services and analyzed for trends, seasonality, and growth patterns. Consumption reports inform capacity planning decisions and budget forecasts.",
+                "optimized": "Real-time consumption analytics drive automated capacity planning and demand forecasting. Predictive models anticipate consumption changes and trigger proactive scaling. Consumption data is integrated with financial models for cost projection."
+              }
             }
           ]
         },
@@ -1192,6 +1462,16 @@
                 "foundational": "High-level cost allocations are communicated to consumers (e.g., total IT cost per business unit), but pricing is not at the service level and does not reflect actual consumption patterns.",
                 "managed": "Service-level pricing is established for major IT services with documented pricing methodologies. Consumers receive regular statements showing services consumed and associated costs.",
                 "optimized": "Dynamic, consumption-based pricing is in place for all cataloged services. Pricing models include tiered rates, volume discounts, and transparent cost components. Consumers can model costs before making consumption decisions."
+              }
+            },
+            {
+              "id": "sp-4-4",
+              "text": "How well does the organization use service cost data to inform make-vs-buy decisions and service sourcing strategies?",
+              "rubric": {
+                "ad_hoc": "Service cost data is not used in sourcing decisions. Make-vs-buy choices are based on incumbent vendor relationships, procurement convenience, or technical preference rather than cost analysis.",
+                "foundational": "Cost data is referenced in major sourcing decisions, but analysis is limited to direct costs without considering total cost of ownership, transition costs, or strategic value.",
+                "managed": "Comprehensive service cost analysis informs all significant make-vs-buy decisions. Analysis includes TCO, transition costs, risk factors, and strategic alignment. Results are documented in business cases per OMB Circular A-76 guidance where applicable.",
+                "optimized": "Service cost data drives continuous sourcing optimization. The organization maintains a sourcing strategy for each service category based on cost-effectiveness, market analysis, and mission criticality. Regular market testing validates sourcing decisions."
               }
             }
           ]
@@ -1229,6 +1509,16 @@
                 "managed": "APIs and platform services are cataloged, governed, and costed as part of the service portfolio. Usage metrics, consumer counts, and cost allocations are tracked for each platform capability.",
                 "optimized": "A mature API/platform strategy treats reusable capabilities as products with clear ownership, SLAs, cost models, and roadmaps. Analytics drive investment in high-value platform services and retirement of underutilized capabilities."
               }
+            },
+            {
+              "id": "sp-5-4",
+              "text": "How effectively does the organization measure and report the business value and citizen experience impact of its digital services?",
+              "rubric": {
+                "ad_hoc": "Digital service value is not measured beyond basic availability and uptime metrics. No connection is made between digital service delivery and mission outcomes or citizen satisfaction.",
+                "foundational": "Some digital services track usage metrics (e.g., page views, transaction counts), but business value and citizen experience are not systematically measured or reported.",
+                "managed": "Digital services are evaluated using business value metrics (e.g., cost avoidance, processing time reduction) and citizen experience measures (e.g., customer satisfaction scores, task completion rates) aligned with 21st Century IDEA Act requirements.",
+                "optimized": "Comprehensive digital service value measurement is continuous and automated. Real-time citizen experience analytics drive service improvements. Value metrics are integrated into agency performance reporting and inform digital investment prioritization."
+              }
             }
           ]
         },
@@ -1264,6 +1554,16 @@
                 "foundational": "Service retirement occurs occasionally but is ad hoc and often incomplete. Decommission costs and timelines are not planned, and resources freed by retirement are not systematically redirected.",
                 "managed": "A formal service retirement process includes user migration planning, data archival, decommission execution, and cost recapture. Freed resources are tracked and redirected to approved priorities.",
                 "optimized": "Service retirement is a well-practiced capability with standardized processes, automated checklists, and proven playbooks. The organization maintains a retirement pipeline and regularly demonstrates budget reallocation from retired services to modernization initiatives."
+              }
+            },
+            {
+              "id": "sp-6-4",
+              "text": "How systematically does the organization evaluate and retire redundant, obsolete, or underperforming IT services from its portfolio?",
+              "rubric": {
+                "ad_hoc": "No systematic service rationalization occurs. Redundant services persist indefinitely, and retirement decisions are made only when forced by vendor end-of-life or system failure.",
+                "foundational": "Ad hoc rationalization efforts occur periodically, typically driven by budget pressure or audit findings. No formal criteria or process exists for evaluating services for retirement.",
+                "managed": "A formal service rationalization program evaluates all services against defined criteria (utilization, cost, strategic alignment, technical health). Rationalization reviews occur annually with documented decisions and retirement plans.",
+                "optimized": "Continuous service rationalization is embedded in portfolio management. Automated analysis identifies rationalization candidates based on real-time utilization, cost, and performance data. A managed retirement pipeline ensures orderly service transitions and cost savings realization."
               }
             }
           ]
@@ -1355,6 +1655,16 @@
                 "managed": "A demand classification framework categorizes requests by type (service request, enhancement, project, strategic initiative), size, and complexity. Each category has an appropriate governance and fulfillment pathway with defined cycle time targets.",
                 "optimized": "Intelligent demand classification uses automated categorization, dynamic routing, and right-sized governance. Machine learning improves classification accuracy over time. Express lanes for small requests coexist with rigorous governance for major investments. Classification data informs portfolio analytics."
               }
+            },
+            {
+              "id": "dm-1-5",
+              "text": "How well does the organization prioritize and triage incoming IT demand requests against available capacity, strategic alignment, and mission urgency?",
+              "rubric": {
+                "ad_hoc": "No formal prioritization or triage of IT demands exists. Requests are handled first-come-first-served or based on the political influence of the requesting organization.",
+                "foundational": "Basic prioritization occurs for large requests, but criteria are informal and inconsistently applied. Small and medium requests bypass any prioritization process entirely.",
+                "managed": "A formal triage process evaluates all IT demand requests against defined criteria including strategic alignment, mission urgency, resource availability, and cost-benefit. Prioritized demand queues are visible to all stakeholders.",
+                "optimized": "Demand triage is automated with scoring algorithms that weigh strategic alignment, mission criticality, cost-benefit, and capacity constraints. Real-time demand dashboards show pipeline status, and dynamic reprioritization occurs as conditions change."
+              }
             }
           ]
         },
@@ -1390,6 +1700,16 @@
                 "foundational": "Basic demand forecasting uses historical request volumes and known upcoming projects. Forecasts are produced annually and not updated based on changing conditions.",
                 "managed": "Demand forecasting incorporates historical trends, business growth plans, technology roadmaps, and stakeholder input. Forecasts are updated quarterly and reviewed with leadership.",
                 "optimized": "Predictive analytics and machine learning forecast demand based on multiple data sources including business metrics, market conditions, and technology trends. Forecasts are continuously refined and highly accurate."
+              }
+            },
+            {
+              "id": "dm-2-4",
+              "text": "How effectively does the organization balance IT capacity across competing demands from multiple mission areas and business units?",
+              "rubric": {
+                "ad_hoc": "Capacity allocation across mission areas is not managed. Resource conflicts are resolved reactively through escalation to senior leadership, causing delays and mission impact.",
+                "foundational": "Basic capacity allocation considers major mission priorities, but granular balancing across business units is not performed. Resource contention is a recurring issue during peak demand periods.",
+                "managed": "Capacity is formally allocated across mission areas using defined priorities and governance processes. Resource contention is managed proactively through capacity planning and demand shaping techniques.",
+                "optimized": "Dynamic capacity management balances resources across mission areas in near-real-time. Elastic cloud resources supplement fixed capacity during demand spikes. Capacity allocation decisions are data-driven and aligned with agency priority framework."
               }
             }
           ]
@@ -1427,6 +1747,16 @@
                 "managed": "A formal governance process oversees showback/chargeback including methodology approval, regular reviews, and a defined dispute resolution process. Stakeholders have input into allocation methodology changes.",
                 "optimized": "Governance is transparent and collaborative, with business stakeholders actively participating in methodology reviews. Disputes are rare due to high data accuracy and consumption-based attribution. Continuous improvement is driven by stakeholder feedback."
               }
+            },
+            {
+              "id": "dm-3-4",
+              "text": "How well does the organization use showback or chargeback data to influence business unit behavior and optimize IT consumption patterns?",
+              "rubric": {
+                "ad_hoc": "No showback or chargeback mechanism exists. Business units consume IT resources without visibility into costs, leading to unconstrained demand growth.",
+                "foundational": "Basic showback reports are provided to business units, but the data is not granular enough to influence behavior. Business units view IT costs as overhead rather than a consumable resource.",
+                "managed": "Showback data is granular, timely, and presented in business terms. Business units understand their IT consumption costs and consider cost implications when making demand decisions. Some cost-conscious behavior changes are evident.",
+                "optimized": "Showback/chargeback is a powerful demand management lever. Business units actively manage their IT consumption, negotiate service levels based on cost trade-offs, and fund new capabilities by optimizing existing usage. Consumption-based pricing drives efficient resource utilization."
+              }
             }
           ]
         },
@@ -1462,6 +1792,16 @@
                 "foundational": "Basic demand management exists through rationing or approval queues, but the organization does not actively shape demand through pricing signals, self-service options, or policy guidance.",
                 "managed": "Active demand management uses showback data, consumption dashboards, and policy guidance to influence user behavior. Standard service tiers and self-service provisioning help channel demand toward cost-effective options.",
                 "optimized": "Sophisticated demand management combines economic signals (chargeback, tiered pricing), behavioral nudges (consumption dashboards, recommendations), and policy levers to optimize demand. Demand shaping strategies are measured for effectiveness and continuously refined."
+              }
+            },
+            {
+              "id": "dm-4-4",
+              "text": "How well does the organization forecast IT demand growth driven by new legislative mandates, policy changes, or mission expansions?",
+              "rubric": {
+                "ad_hoc": "IT demand impacts from legislative or policy changes are not forecasted. New mandates result in emergency resource requests and reactive capacity scrambles.",
+                "foundational": "Ad hoc assessments of IT demand impact are performed when major mandates are known, but no systematic process links legislative tracking to IT demand forecasting.",
+                "managed": "IT demand forecasting formally incorporates legislative tracking, policy analysis, and mission expansion plans. Impact assessments estimate resource, timeline, and budget implications of anticipated changes.",
+                "optimized": "Predictive demand models integrate real-time legislative and policy tracking, interagency coordination intelligence, and mission growth projections. Scenario-based forecasts enable proactive resource positioning and are integrated with the agency's Congressional affairs and strategic planning functions."
               }
             }
           ]
@@ -1597,6 +1937,16 @@
                 "managed": "Business stakeholders have visibility into the demand pipeline through dashboards or portals showing request status, queue position, and prioritization rationale. Regular communication updates stakeholders on pipeline decisions.",
                 "optimized": "Full demand pipeline transparency provides business stakeholders with real-time visibility, interactive priority modeling, and collaborative planning tools. Stakeholders understand trade-offs and can participate in prioritization discussions with complete information."
               }
+            },
+            {
+              "id": "dm-8-3",
+              "text": "How effectively does the organization capture and analyze unmet IT demand to inform strategic planning and investment decisions?",
+              "rubric": {
+                "ad_hoc": "Unmet IT demand is not tracked. Rejected or deferred requests disappear from view, and the organization has no visibility into the gap between business needs and IT delivery capacity.",
+                "foundational": "Some record of deferred or rejected requests exists, but data is not analyzed systematically. Patterns of unmet demand are not identified or communicated to leadership.",
+                "managed": "Unmet demand is systematically tracked, categorized, and analyzed. Reports identify patterns of unmet demand by business area, capability type, and strategic theme. Analysis informs annual IT strategic planning and budget formulation.",
+                "optimized": "Unmet demand analytics are integrated into strategic planning and investment prioritization. Predictive models forecast future demand gaps, enabling proactive capacity investment. Unmet demand data drives business cases for new capabilities and informs OMB budget submissions."
+              }
             }
           ]
         }
@@ -1651,6 +2001,16 @@
                 "managed": "CIO authority is consistently exercised over all IT investments per FITARA requirements. A defined review process ensures CIO visibility into and approval authority over IT spending across the enterprise.",
                 "optimized": "CIO authority is a strategic enabler that drives portfolio optimization, prevents duplication, and ensures alignment with enterprise architecture and IT strategy. The CIO office provides value-added review that improves investment quality rather than simply adding process overhead."
               }
+            },
+            {
+              "id": "ip-1-5",
+              "text": "How effectively does the CIO exercise authority over IT investment decisions as mandated by FITARA, including approval, disapproval, and de-obligation of IT spending?",
+              "rubric": {
+                "ad_hoc": "The CIO has limited visibility into IT investment decisions across the agency. Significant IT spending occurs outside CIO authority, and FITARA Section 831 requirements for CIO budget authority are not fully implemented.",
+                "foundational": "The CIO reviews major IT investments but does not have effective authority to disapprove or redirect spending. FITARA authority is acknowledged in policy but not consistently exercised in practice.",
+                "managed": "The CIO exercises clear authority over IT investment decisions, including review and approval of all IT acquisitions above defined thresholds. FITARA Section 831 requirements are fully implemented with documented delegation and escalation processes.",
+                "optimized": "CIO IT investment authority is fully operationalized with real-time visibility into all IT spending decisions. The CIO proactively shapes the investment portfolio through strategic guidance, and FITARA authority extends to effective oversight of bureau/component IT spending."
+              }
             }
           ]
         },
@@ -1687,6 +2047,16 @@
                 "managed": "A structured risk assessment framework is applied to all significant investments, evaluating technical, organizational, financial, and schedule risks. Risk mitigation plans are required and tracked.",
                 "optimized": "Quantitative risk analysis (e.g., Monte Carlo simulation) informs investment decisions. Portfolio-level risk is monitored and managed. Risk appetite statements guide investment selection, and risk outcomes inform future assessments."
               }
+            },
+            {
+              "id": "ip-2-4",
+              "text": "How well does the organization validate investment business case assumptions through post-implementation reviews and benefits realization tracking?",
+              "rubric": {
+                "ad_hoc": "Post-implementation reviews are not conducted. Once an investment is approved and deployed, business case assumptions are never validated against actual outcomes.",
+                "foundational": "Post-implementation reviews are performed for a few high-visibility investments, but the practice is not systematic. Benefits realization is tracked informally if at all.",
+                "managed": "Post-implementation reviews are conducted for all major investments at defined intervals. Benefits realization is formally tracked against business case projections, and lessons learned inform future business case development.",
+                "optimized": "Continuous benefits realization management is embedded in investment governance. Automated tracking compares actual outcomes to projected benefits in real time. Variance analysis feeds back into business case models and improves estimation accuracy across the portfolio."
+              }
             }
           ]
         },
@@ -1722,6 +2092,16 @@
                 "foundational": "Severely underperforming investments are occasionally cancelled or restructured, but decisions are reactive and politically difficult. No formal criteria trigger investment review.",
                 "managed": "Stage-gate reviews evaluate investment health at defined milestones. Predefined criteria trigger escalation for underperforming investments. Options include restructuring, descoping, or termination.",
                 "optimized": "Portfolio monitoring continuously assesses investment health using earned value, risk burn-down, and benefit accrual metrics. Proactive course correction is culturally accepted and decision-supported with data."
+              }
+            },
+            {
+              "id": "ip-3-4",
+              "text": "How effectively does the organization measure and communicate the mission value delivered by IT investments to agency leadership and OMB?",
+              "rubric": {
+                "ad_hoc": "Mission value of IT investments is not measured or communicated. IT is perceived as a cost center, and investment outcomes are described in technical rather than mission terms.",
+                "foundational": "Some effort is made to describe IT investment outcomes in mission terms, but measurement is qualitative and inconsistent. OMB Exhibit 300 business cases include mission alignment statements but lack quantified value metrics.",
+                "managed": "Mission value metrics are defined for all major IT investments and tracked throughout the investment lifecycle. Value reporting is integrated with agency performance reporting and OMB submission processes.",
+                "optimized": "Mission value measurement is comprehensive and continuous. IT investments are directly linked to agency strategic objective outcomes with quantified impact metrics. Value data drives real-time investment portfolio optimization and strengthens OMB budget justifications."
               }
             }
           ]
@@ -1841,6 +2221,16 @@
                 "managed": "Portfolio governance explicitly allocates resources across time horizons (strategic, tactical, quick-win). A managed pipeline of quick-win opportunities provides near-term value while strategic investments progress on planned timelines.",
                 "optimized": "Dynamic portfolio balancing continuously optimizes resource allocation across time horizons. Quick-win tracking demonstrates ongoing value delivery. Strategic investment milestones are met without sacrificing tactical improvements. Portfolio health metrics monitor balance across multiple dimensions."
               }
+            },
+            {
+              "id": "ip-6-4",
+              "text": "How effectively does the organization apply modular contracting and incremental delivery principles to IT investments as encouraged by FITARA and OMB guidance?",
+              "rubric": {
+                "ad_hoc": "IT investments are primarily structured as large, monolithic programs with extended delivery timelines. Modular contracting principles are not applied, and incremental delivery is not a standard practice.",
+                "foundational": "Some investments use modular approaches, but the organization defaults to traditional waterfall delivery and monolithic contracts. OMB guidance on modular contracting (M-14-03) is referenced but not consistently followed.",
+                "managed": "Modular contracting and incremental delivery are standard practice for major IT investments. Contracts are structured with defined modules, off-ramps, and independent delivery milestones. TechStat-style reviews occur at increment boundaries.",
+                "optimized": "Modular, incremental delivery is the default approach for all IT investments. Automated portfolio monitoring tracks delivery velocity and value realization at the module level. Underperforming modules trigger rapid corrective action, and successful patterns are codified as organizational standards."
+              }
             }
           ]
         },
@@ -1876,6 +2266,16 @@
                 "foundational": "Post-implementation reviews are conducted occasionally for high-profile investments, but lessons learned are not systematically captured or disseminated.",
                 "managed": "Post-implementation reviews are standard practice for all significant investments. Lessons learned are documented, categorized, and made available to future investment teams. Patterns across reviews inform governance process improvements.",
                 "optimized": "A comprehensive learning system captures, analyzes, and applies lessons from all investment outcomes. Pattern analysis identifies systemic issues in estimation, execution, or governance. Predictive models improve based on outcome data. The organization demonstrates measurable improvement in investment success rates over time."
+              }
+            },
+            {
+              "id": "ip-7-4",
+              "text": "How well does the organization assess and manage the risk of IT investment portfolio concentration, including over-reliance on single vendors, technologies, or delivery models?",
+              "rubric": {
+                "ad_hoc": "Portfolio concentration risk is not assessed. The organization may be heavily dependent on single vendors or technologies without awareness of the associated risks.",
+                "foundational": "Some awareness of concentration risk exists (e.g., major vendor dependency is acknowledged), but no formal assessment or mitigation strategy is in place.",
+                "managed": "Portfolio concentration risk is formally assessed across dimensions including vendor dependency, technology platform risk, skill concentration, and delivery model reliance. Mitigation strategies are developed for identified concentrations.",
+                "optimized": "Continuous portfolio risk monitoring includes automated concentration analysis with defined thresholds and mitigation triggers. Diversification strategies are embedded in investment planning, and concentration metrics are reported to investment governance boards."
               }
             }
           ]
@@ -1920,6 +2320,16 @@
                 "foundational": "A contract repository exists but may be incomplete. Basic spend data is available by vendor, but detailed terms, obligations, and SLA commitments are not consistently captured in a searchable format.",
                 "managed": "A comprehensive contract management system captures all IT contracts with key terms, financial commitments, SLAs, and obligations. Dashboards provide portfolio-level visibility into spend, expiration timelines, and risk.",
                 "optimized": "AI-assisted contract analytics extract and monitor terms, obligations, and compliance requirements across the portfolio. Real-time spend tracking identifies variance from contracted rates. Risk scoring prioritizes contract management attention."
+              }
+            },
+            {
+              "id": "vc-1-4",
+              "text": "How effectively does the organization manage contract transition and knowledge transfer when changing vendors or bringing services in-house?",
+              "rubric": {
+                "ad_hoc": "Contract transitions are poorly managed with significant knowledge loss and service disruptions. No formal transition planning or knowledge transfer requirements exist in contracts.",
+                "foundational": "Basic transition clauses exist in some contracts, but knowledge transfer activities are ad hoc and incomplete. Service disruptions during vendor transitions are common.",
+                "managed": "Formal transition management plans are required for all significant contracts. Knowledge transfer activities are defined, scheduled, and monitored. Transition readiness assessments validate preparedness before vendor changes occur.",
+                "optimized": "Contract transitions are seamlessly managed through comprehensive transition playbooks, automated knowledge repositories, and competitive transition incentive structures. Zero-disruption transitions are the norm, and transition lessons learned are institutionalized."
               }
             }
           ]
@@ -1967,6 +2377,16 @@
                 "managed": "Past performance evaluation is a robust component of IT source selection, drawing on CPARS, internal performance data, and references. The organization maintains complete, timely CPARS records for all IT contracts.",
                 "optimized": "Comprehensive past performance intelligence combines CPARS data, internal performance metrics, and cross-government information to inform procurement decisions. The organization is recognized for thorough, timely CPARS reporting and uses performance data to build a preferred vendor ecosystem."
               }
+            },
+            {
+              "id": "vc-2-5",
+              "text": "How well does the organization use vendor performance data to inform re-competition decisions and future acquisition strategies?",
+              "rubric": {
+                "ad_hoc": "Vendor performance data is not maintained in a form that supports re-competition or future acquisition decisions. Past vendor performance is not a factor in source selection.",
+                "foundational": "Basic vendor performance information is available for major contracts, but it is not systematically organized or accessible to acquisition teams. Past performance evaluations in CPARS are completed but not strategically used.",
+                "managed": "Vendor performance data is centrally maintained and accessible to acquisition teams. CPARS evaluations are thorough and timely, and past performance is a significant factor in source selection per FAR Part 42.",
+                "optimized": "Vendor performance analytics drive acquisition strategy. Predictive models assess vendor risk and value based on comprehensive performance histories. Performance data informs total evaluated price models and enables strategic vendor portfolio management."
+              }
             }
           ]
         },
@@ -2002,6 +2422,16 @@
                 "foundational": "Compliance is checked periodically for the largest software vendors, but complex licensing terms (e.g., core-based, processor-based, virtualization rights) may not be fully understood or tracked.",
                 "managed": "A proactive compliance management program monitors all significant software agreements, with staff trained on complex licensing terms. Self-audits are performed regularly, and findings are remediated before vendor audits.",
                 "optimized": "Automated compliance monitoring continuously tracks deployments against entitlements for all licensing models. Expert knowledge of licensing terms is maintained and applied to architectural decisions. The organization is consistently audit-ready."
+              }
+            },
+            {
+              "id": "vc-3-4",
+              "text": "How well does the organization negotiate and manage enterprise license agreements (ELAs) to optimize cost and ensure compliance across the organization?",
+              "rubric": {
+                "ad_hoc": "Enterprise license agreements are negotiated independently by business units. No coordination exists to leverage aggregate purchasing power, and compliance monitoring is minimal.",
+                "foundational": "Some coordination of enterprise license negotiations occurs through the procurement office, but terms are not optimized for agency-wide needs. License compliance is checked periodically but not systematically.",
+                "managed": "Enterprise license agreements are strategically negotiated with agency-wide requirements analysis and volume leverage. License management tools track compliance, utilization, and cost-effectiveness across all enterprise agreements.",
+                "optimized": "ELA management is a strategic capability with continuous optimization of terms, pricing, and deployment rights. Automated license management platforms ensure compliance, identify savings opportunities, and support government-wide purchasing vehicles like GSA BPAs and SEWP."
               }
             }
           ]
@@ -2039,6 +2469,16 @@
                 "managed": "Vendor concentration risk is systematically assessed across the IT portfolio. Procurement strategies include market research to ensure competition. Risk mitigation plans exist for critical single-source dependencies.",
                 "optimized": "Comprehensive vendor portfolio analysis monitors concentration, competition health, and market dynamics. Proactive vendor development cultivates alternatives for critical capabilities. Contract structures ensure portability and prevent lock-in. Vendor diversity goals align with socioeconomic requirements."
               }
+            },
+            {
+              "id": "vc-4-4",
+              "text": "How effectively does the organization develop and maintain strategic vendor partnerships that extend beyond transactional contracting to drive innovation and mission value?",
+              "rubric": {
+                "ad_hoc": "Vendor relationships are purely transactional. Interactions are limited to contract compliance and invoice processing with no strategic engagement or innovation collaboration.",
+                "foundational": "Some strategic dialogue occurs with major vendors, but relationships lack structure. Innovation discussions are opportunistic rather than programmatic, and partnership commitments are informal.",
+                "managed": "Strategic vendor partnerships are formally structured with defined objectives, governance cadences, and innovation agendas. Partnership reviews assess mutual value creation and alignment with agency strategic priorities.",
+                "optimized": "Strategic partnerships drive significant mission innovation and value creation. Formal innovation funds, joint development agreements, and shared roadmap planning enable vendors to contribute to mission outcomes beyond contract deliverables. Partnership ROI is measured and reported."
+              }
             }
           ]
         },
@@ -2075,6 +2515,16 @@
                 "managed": "Lock-in risk assessment is a standard part of cloud and SaaS procurement evaluation. Contracts include data portability, API access, and exit assistance provisions. Architecture standards promote portability where feasible.",
                 "optimized": "Comprehensive lock-in risk management includes contract provisions, architecture standards, regular portability testing, and exit cost modeling. The organization maintains viable alternatives for critical cloud services and can execute provider transitions with managed cost and risk."
               }
+            },
+            {
+              "id": "vc-5-4",
+              "text": "How effectively does the organization manage SaaS vendor lock-in risk and ensure data portability across cloud service providers?",
+              "rubric": {
+                "ad_hoc": "SaaS vendor lock-in risk is not assessed. Data portability requirements are not included in contracts, and the organization has no strategy for migrating away from incumbent SaaS providers.",
+                "foundational": "Awareness of lock-in risk exists, but data portability and interoperability requirements are inconsistently included in SaaS contracts. Migration feasibility has not been assessed for existing SaaS services.",
+                "managed": "Data portability and interoperability requirements are standard in all SaaS contracts. Lock-in risk is assessed during acquisition and monitored during contract performance. Migration plans exist for critical SaaS services.",
+                "optimized": "Lock-in risk management is integrated into cloud strategy with automated multi-cloud portability testing, contractual exit provisions aligned with FedRAMP standards, and active management of data formats and API dependencies. The organization can migrate critical services with minimal disruption."
+              }
             }
           ]
         },
@@ -2110,6 +2560,16 @@
                 "foundational": "Procurement cycle times are measured for some acquisitions, but no improvement targets exist. Long cycle times are accepted as inherent to government procurement.",
                 "managed": "Procurement cycle times are tracked by acquisition type and size, with improvement targets and root cause analysis for delays. Streamlined processes (e.g., blanket purchase agreements, simplified acquisitions) reduce cycle times for common buys.",
                 "optimized": "Procurement cycle time optimization is a strategic priority. The organization consistently achieves below-average cycle times through process innovation, pre-positioned vehicles, and acquisition workforce development. Cycle time metrics are benchmarked against peer agencies."
+              }
+            },
+            {
+              "id": "vc-6-4",
+              "text": "How well does the organization leverage government-wide acquisition vehicles and shared services to improve IT procurement efficiency and achieve best value?",
+              "rubric": {
+                "ad_hoc": "Government-wide acquisition vehicles are underutilized. Procurement teams default to standalone contracts without assessing whether existing vehicles (e.g., GSA Schedule, SEWP, CIO-SP3) offer better value or faster acquisition.",
+                "foundational": "Government-wide vehicles are used for some commodity purchases, but strategic use is limited. Procurement teams are not fully trained on available vehicles or best practices for their use.",
+                "managed": "Strategic use of government-wide vehicles is standard practice. Procurement teams evaluate available vehicles for all acquisitions and select the approach that offers best value, speed, and compliance. Vehicle utilization is tracked and reported.",
+                "optimized": "Optimized use of government-wide vehicles and category management principles drives procurement efficiency. The organization actively participates in government-wide category management initiatives, shares best practices, and achieves measurable savings through strategic sourcing."
               }
             }
           ]
@@ -2201,6 +2661,16 @@
                 "managed": "The IT asset inventory meets BOD 23-01 requirements for automated discovery with defined scanning cadences. All networked assets are inventoried including IoT, OT, and cloud. Inventory data feeds vulnerability management and CDM processes.",
                 "optimized": "Continuous, automated asset discovery provides a real-time, comprehensive inventory of all networked assets. Full integration with CDM tools enables automated vulnerability assessment and compliance monitoring. The inventory supports zero trust architecture by providing authoritative device identity data."
               }
+            },
+            {
+              "id": "am-1-5",
+              "text": "How effectively does the organization maintain a comprehensive and accurate inventory of IT assets including hardware, software, and cloud subscriptions across all environments?",
+              "rubric": {
+                "ad_hoc": "IT asset inventory is incomplete and unreliable. Significant gaps exist in tracking hardware, software licenses, and cloud subscriptions. Asset discovery is manual and infrequent.",
+                "foundational": "A basic asset inventory exists for on-premises hardware and major software, but cloud resources and SaaS subscriptions are not comprehensively tracked. Inventory accuracy is estimated at less than 80%.",
+                "managed": "Comprehensive asset inventory covers hardware, software, cloud resources, and SaaS subscriptions across all environments. Automated discovery tools maintain accuracy above 95%. The inventory integrates with the CMDB and financial systems.",
+                "optimized": "Real-time asset visibility across all environments is achieved through automated continuous discovery, reconciliation, and lifecycle tracking. Asset data is the authoritative source for financial planning, security compliance, and capacity management."
+              }
             }
           ]
         },
@@ -2236,6 +2706,16 @@
                 "foundational": "End-of-support dates are tracked for some critical assets, but no systematic process exists to identify and remediate all end-of-life assets before support expires.",
                 "managed": "End-of-support and end-of-life dates are tracked for all assets with automated alerts. Remediation plans are developed 12+ months before support expiration. Risk-based exceptions are documented and approved.",
                 "optimized": "Proactive lifecycle intelligence identifies end-of-support risks across the entire asset portfolio, including embedded components and dependencies. Vendor lifecycle roadmaps inform strategic planning. Zero end-of-support assets in production without approved risk acceptance."
+              }
+            },
+            {
+              "id": "am-2-4",
+              "text": "How well does the organization manage end-of-life and end-of-support transitions for IT assets to minimize security risk and operational disruption?",
+              "rubric": {
+                "ad_hoc": "End-of-life and end-of-support dates are not tracked. Assets continue to operate beyond vendor support windows, creating security vulnerabilities and compliance risks without organizational awareness.",
+                "foundational": "End-of-life dates are tracked for major assets, but transition planning is reactive. Assets are sometimes discovered to be unsupported only when security vulnerabilities are reported or patches are unavailable.",
+                "managed": "End-of-life/end-of-support tracking is comprehensive with automated alerting at defined lead times (e.g., 12, 6, 3 months). Migration and replacement plans are developed proactively, and unsupported assets are tracked as risk items.",
+                "optimized": "Lifecycle management is fully proactive with automated transition planning triggered by vendor roadmap integration. Zero unsupported assets operate in production. End-of-life transitions are seamlessly orchestrated with minimal mission impact."
               }
             }
           ]
@@ -2273,6 +2753,16 @@
                 "managed": "Infrastructure optimization is a formal program covering virtualization, right-sizing, consolidation, and cloud migration. Utilization targets are set and monitored. A cloud migration strategy guides workload placement decisions.",
                 "optimized": "Automated infrastructure optimization continuously right-sizes resources across on-premises and cloud environments. Intelligent workload placement maximizes cost efficiency and performance. The organization achieves industry-leading utilization rates."
               }
+            },
+            {
+              "id": "am-3-4",
+              "text": "How systematically does the organization evaluate application portfolio health and identify candidates for modernization, consolidation, or retirement?",
+              "rubric": {
+                "ad_hoc": "No systematic application rationalization occurs. The application portfolio grows organically with redundant and obsolete applications consuming resources indefinitely.",
+                "foundational": "Periodic application reviews identify obvious retirement candidates, but evaluation criteria are informal. The organization lacks a comprehensive view of application portfolio health or rationalization priorities.",
+                "managed": "Formal application rationalization uses structured evaluation criteria (business value, technical health, cost, risk) applied to the full application portfolio. Rationalization reviews produce prioritized modernization and retirement recommendations aligned with agency modernization plans.",
+                "optimized": "Continuous application portfolio optimization uses automated health scoring, user adoption analytics, and cost-effectiveness metrics. Rationalization is embedded in portfolio governance, and retirement savings are reinvested in modernization per MGT Act and agency IT modernization plans."
+              }
             }
           ]
         },
@@ -2308,6 +2798,16 @@
                 "foundational": "End-of-life dates are tracked for major software products, but migration planning is often delayed until support expiration is imminent, resulting in rushed transitions or extended support costs.",
                 "managed": "Software lifecycle management includes proactive tracking of end-of-life dates, planned migration timelines, and budgeted transition costs. Migration planning begins well in advance of support expiration.",
                 "optimized": "Automated lifecycle tracking monitors end-of-life status for all software assets. Coordinated migration roadmaps align with technology strategy and budget cycles. The organization avoids extended support costs through timely, planned transitions and actively manages technical debt."
+              }
+            },
+            {
+              "id": "am-4-4",
+              "text": "How effectively does the organization manage software license compliance and optimization to avoid audit risk and minimize unnecessary spending?",
+              "rubric": {
+                "ad_hoc": "Software license compliance is not actively managed. The organization is at risk of vendor audit findings, and significant over-licensing or under-licensing likely exists without awareness.",
+                "foundational": "Basic license compliance checks are performed for major software vendors, but comprehensive reconciliation of entitlements vs. installations is not performed. Optimization is limited to obvious surplus licenses.",
+                "managed": "Software license management includes automated discovery, entitlement tracking, and compliance monitoring for all significant software products. Regular optimization reviews identify opportunities to harvest unused licenses and right-size agreements.",
+                "optimized": "Enterprise software asset management is fully mature with automated compliance monitoring, proactive optimization, and predictive license demand modeling. License intelligence informs all procurement decisions, and the organization consistently passes vendor audits with no material findings."
               }
             }
           ]
@@ -2345,6 +2845,16 @@
                 "managed": "The CMDB is comprehensive, actively maintained through automated discovery and reconciliation processes. Relationship mapping connects assets to services, applications, and business capabilities. CMDB data supports change management and incident response.",
                 "optimized": "A federated CMDB integrates data from multiple discovery and management tools, providing a real-time, accurate view of all IT assets and relationships across hybrid environments. CMDB data drives automated workflows, impact analysis, and service dependency mapping."
               }
+            },
+            {
+              "id": "am-5-4",
+              "text": "How well does the organization track and manage cloud resource sprawl, including unused instances, unattached storage, and orphaned resources?",
+              "rubric": {
+                "ad_hoc": "Cloud resource sprawl is not tracked. Resources provisioned for development, testing, or temporary purposes persist indefinitely, consuming budget without providing value.",
+                "foundational": "Basic cloud resource monitoring identifies some unused resources, but cleanup is ad hoc and incomplete. No automated policies enforce resource lifecycle management.",
+                "managed": "Automated cloud resource management identifies and flags unused resources, unattached storage, and orphaned configurations. Cleanup policies are enforced with defined retention periods and automated de-provisioning workflows.",
+                "optimized": "Comprehensive cloud resource optimization continuously identifies and eliminates waste. Automated lifecycle policies enforce resource hygiene, and anomaly detection flags unexpected resource creation. Cloud waste metrics are tracked and reported as part of FinOps practice."
+              }
             }
           ]
         },
@@ -2380,6 +2890,16 @@
                 "foundational": "Basic disposal procedures exist for common asset types, but compliance is inconsistent. Data sanitization may not meet NIST 800-88 standards. Environmental compliance (e.g., e-waste regulations) is not systematically addressed.",
                 "managed": "Formal disposal processes cover all asset types with documented data sanitization per NIST 800-88, chain of custody tracking, environmental compliance, and value recovery through resale or trade-in programs.",
                 "optimized": "Comprehensive disposal management is automated with full chain of custody, certified data sanitization, environmental compliance, and optimized value recovery. Disposal analytics identify opportunities to extend asset life, refurbish for secondary use, or maximize resale value."
+              }
+            },
+            {
+              "id": "am-6-4",
+              "text": "How effectively does the organization manage data assets as strategic resources with defined ownership, quality standards, and lifecycle management?",
+              "rubric": {
+                "ad_hoc": "Data is not treated as a managed asset. No data ownership, quality standards, or lifecycle management practices exist. Data governance is absent or fragmented across business units.",
+                "foundational": "Basic data governance exists for some critical datasets, but ownership is unclear, quality standards are informal, and lifecycle management is not practiced. Data governance is limited to compliance-driven activities.",
+                "managed": "Formal data governance program assigns data stewards, defines quality standards, and implements lifecycle management for all significant data assets. Data catalogs enable discovery and understanding of available data resources aligned with CDO Council guidance.",
+                "optimized": "Data is managed as a strategic enterprise asset with comprehensive governance, automated quality monitoring, and optimized lifecycle management. Data valuation informs investment decisions, and data sharing is facilitated through published APIs and machine-readable formats per the OPEN Data Act."
               }
             }
           ]
@@ -2471,6 +2991,16 @@
                 "managed": "A structured IT acquisition review process ensures CIO involvement in all significant IT procurements. Review criteria, timelines, and escalation paths are defined and followed consistently.",
                 "optimized": "IT acquisition review is efficient, risk-based, and adds value beyond compliance. Strategic acquisitions receive early CIO engagement. The process is integrated with strategic sourcing and vendor management."
               }
+            },
+            {
+              "id": "fc-1-4",
+              "text": "How effectively does the organization implement FITARA requirements for CIO authority over IT workforce management, including hiring, training, and performance evaluation?",
+              "rubric": {
+                "ad_hoc": "CIO has no role in IT workforce decisions. IT hiring, training, and performance management are handled entirely by individual business units without CIO input or coordination.",
+                "foundational": "CIO provides advisory input on IT workforce decisions for some positions, but authority is limited. IT skills gap analysis and workforce planning are not coordinated through the CIO office.",
+                "managed": "CIO has formal authority over IT workforce decisions including hiring approval for IT positions, skills gap analysis, and training investment. IT workforce planning is coordinated through the CIO office per FITARA Section 831.",
+                "optimized": "Full CIO authority over IT workforce management drives strategic human capital development. Comprehensive IT skills inventories, career development frameworks, and succession plans are maintained. IT workforce metrics are reported to OMB through the FITARA implementation plan."
+              }
             }
           ]
         },
@@ -2506,6 +3036,16 @@
                 "foundational": "The organization can respond to oversight requests but requires significant effort to compile data. Responses may take weeks and involve reconciling data from multiple sources.",
                 "managed": "IT spending data is organized to support rapid response to oversight requests. Standard reports can be produced quickly, and ad hoc requests are fulfilled within defined timelines.",
                 "optimized": "Comprehensive, auditable IT spending data is readily available and can be sliced by any dimension requested. Responses to oversight requests are timely, consistent, and backed by transparent methodology."
+              }
+            },
+            {
+              "id": "fc-2-4",
+              "text": "How well does the organization comply with IT spending reporting requirements under the FITARA IT Dashboard and OMB Integrated Data Collection (IDC)?",
+              "rubric": {
+                "ad_hoc": "IT spending data reported to OMB is incomplete, inaccurate, or submitted late. The organization struggles to reconcile internal IT spending data with OMB reporting requirements.",
+                "foundational": "Basic compliance with IT Dashboard and IDC reporting exists, but data quality issues are common. Manual data gathering and reconciliation processes introduce errors and consume significant staff effort.",
+                "managed": "IT spending reporting is accurate, timely, and integrated with internal financial management processes. Automated data feeds from financial systems support OMB reporting requirements, and data quality reviews are performed before each submission.",
+                "optimized": "IT spending reporting is exemplary with fully automated, validated data pipelines to OMB systems. The organization proactively identifies and resolves data quality issues, and reporting processes are integrated with continuous financial management."
               }
             }
           ]
@@ -2543,6 +3083,16 @@
                 "managed": "TBM data is a standard input to IT budget formulation, providing cost transparency, unit costs, and benchmarking context. Budget decisions are informed by TBM analysis.",
                 "optimized": "TBM is fully integrated with the budget lifecycle. Cost models, unit economics, and benchmarks drive budget formulation. Real-time TBM data supports budget execution monitoring and mid-year adjustments."
               }
+            },
+            {
+              "id": "fc-3-4",
+              "text": "How effectively does the organization comply with OMB Circular A-130 requirements for IT planning, budgeting, governance, and acquisition?",
+              "rubric": {
+                "ad_hoc": "OMB A-130 requirements are not systematically addressed. Compliance is reactive and driven by audit findings rather than proactive governance.",
+                "foundational": "Basic awareness of A-130 requirements exists, but implementation is inconsistent across the organization. Some requirements are addressed in policy but not in practice.",
+                "managed": "A-130 requirements are systematically implemented through documented policies, processes, and controls. Regular self-assessments verify compliance, and gaps are tracked with remediation plans.",
+                "optimized": "Full A-130 compliance is embedded in organizational culture and operations. The organization exceeds baseline requirements and actively contributes to government-wide IT policy development through interagency working groups."
+              }
             }
           ]
         },
@@ -2579,6 +3129,16 @@
                 "managed": "Comprehensive A-130 compliance is assessed regularly across all requirement areas. Gaps are identified and addressed through documented remediation plans. Compliance evidence is maintained for oversight reporting.",
                 "optimized": "A-130 compliance is fully integrated into IT management practice. The organization exceeds minimum requirements and uses A-130 as a framework for management excellence. Compliance is demonstrated through measurable outcomes rather than process documentation alone."
               }
+            },
+            {
+              "id": "fc-4-4",
+              "text": "How well does the organization maintain audit readiness for IT-related financial and operational audits, including IG and GAO reviews?",
+              "rubric": {
+                "ad_hoc": "Audit readiness is poor. IT financial records, system documentation, and control evidence are disorganized and incomplete. Audit preparation is a scramble that diverts resources from operations.",
+                "foundational": "Basic audit preparation processes exist, but audit readiness is inconsistent. Some documentation and evidence are maintained, but gaps are common and require significant effort to address during audit engagements.",
+                "managed": "Continuous audit readiness is maintained for IT financial and operational domains. Documentation, evidence, and control testing results are organized and accessible. Audit liaison processes are well-defined and efficient.",
+                "optimized": "Audit readiness is fully embedded in IT operations. Automated control monitoring and evidence collection ensure continuous compliance. Audit engagements are routine and efficient, with minimal operational disruption. The organization proactively addresses emerging audit focus areas."
+              }
             }
           ]
         },
@@ -2614,6 +3174,16 @@
                 "foundational": "Basic cost information is shared with stakeholders, but the connection between spending and outcomes is weak. Stakeholders remain uncertain about IT investment value.",
                 "managed": "IT cost transparency actively builds stakeholder confidence by demonstrating cost discipline, benchmark performance, and investment outcomes. Transparency data supports budget requests and investment proposals.",
                 "optimized": "IT spending transparency is a competitive advantage in securing resources. The organization's demonstrated track record of cost management, supported by comprehensive TBM data, gives stakeholders confidence in IT stewardship and facilitates approval of strategic investment requests."
+              }
+            },
+            {
+              "id": "fc-5-4",
+              "text": "How well does the organization leverage Digital Accountability and Transparency Act (DATA Act) reporting data to improve IT spending transparency and decision-making?",
+              "rubric": {
+                "ad_hoc": "DATA Act reporting is treated as a compliance exercise with no connection to IT spending transparency or decision-making. IT spending data in DATA Act submissions is not reconciled with internal reporting.",
+                "foundational": "DATA Act submissions include IT spending data, but it is not used for internal analysis or decision-making. Reconciliation between DATA Act and internal IT spending data is performed only for audit purposes.",
+                "managed": "DATA Act reporting data is reconciled with internal IT spending data and used to enhance spending transparency. Insights from DATA Act data (e.g., award-level spending patterns) supplement internal cost analysis.",
+                "optimized": "DATA Act data is fully integrated into the IT spending transparency ecosystem. Award-level, sub-award, and obligation data enhance internal cost analysis and benchmarking. The organization uses DATA Act data to identify optimization opportunities and validate vendor spending."
               }
             }
           ]
@@ -2659,6 +3229,16 @@
                 "managed": "The organization systematically evaluates QSMO offerings and government-wide shared services for applicable functions. Adoption decisions are documented with business case support.",
                 "optimized": "The organization is an active participant in shared services ecosystems, both consuming and potentially providing services. Continuous monitoring of QSMO and shared service offerings informs service delivery decisions."
               }
+            },
+            {
+              "id": "ss-1-4",
+              "text": "How well does the organization align its shared services strategy with government-wide shared services initiatives and OMB designated providers?",
+              "rubric": {
+                "ad_hoc": "No alignment with government-wide shared services initiatives exists. The organization operates independently without considering OMB-designated shared service providers or Quality Service Management Offices (QSMOs).",
+                "foundational": "Awareness of government-wide shared services initiatives exists, but the organization has not assessed its services against QSMO offerings or OMB marketplace designations.",
+                "managed": "The organization has assessed its services against QSMO offerings and OMB shared services marketplace. Migration plans exist for services where designated providers offer better value. The organization actively participates in QSMO governance forums.",
+                "optimized": "Full alignment with government-wide shared services strategy. The organization serves as an early adopter of QSMO services, contributes to standards development, and uses shared services to achieve cost savings and mission focus per PMA Cross-Agency Priority goals."
+              }
             }
           ]
         },
@@ -2695,6 +3275,16 @@
                 "managed": "Structured transition management ensures service quality is maintained throughout consolidation. SLAs are defined for the transition period, and post-consolidation service levels meet or exceed pre-consolidation baselines.",
                 "optimized": "Consolidation transitions are executed with minimal disruption using proven methodologies. Post-consolidation service quality consistently improves. Customer satisfaction is measured and targeted throughout the transition lifecycle."
               }
+            },
+            {
+              "id": "ss-2-4",
+              "text": "How effectively does the organization measure and realize cost savings from IT service consolidation and shared service adoption?",
+              "rubric": {
+                "ad_hoc": "Cost savings from consolidation are not measured. Shared services are adopted based on mandates rather than business case analysis, and actual savings are not tracked.",
+                "foundational": "Estimated savings from consolidation initiatives are included in business cases, but actual savings realization is not tracked. It is unclear whether shared service adoption achieves projected cost benefits.",
+                "managed": "Cost savings from consolidation are formally tracked through defined baseline comparisons and savings realization reports. Actual vs. projected savings are reported to leadership, and shortfalls trigger corrective action.",
+                "optimized": "Comprehensive savings tracking covers direct cost reductions, avoided costs, and productivity gains from consolidation. Savings are verified through independent validation and reinvested in modernization. Savings data informs future consolidation business cases and improves estimation accuracy."
+              }
             }
           ]
         },
@@ -2720,6 +3310,16 @@
                 "foundational": "Basic performance metrics exist for some shared services, but reporting is inconsistent and does not include value realization (cost savings, quality improvements).",
                 "managed": "Comprehensive performance dashboards track shared service quality, cost, customer satisfaction, and value realization. Reports are shared with governance bodies and service consumers regularly.",
                 "optimized": "Real-time performance monitoring with benchmarking against internal delivery and external market alternatives. Value realization is continuously tracked and validated. Analytics drive proactive service improvement."
+              }
+            },
+            {
+              "id": "ss-3-3",
+              "text": "How well does the organization manage service-level expectations and accountability between shared service providers and consuming business units?",
+              "rubric": {
+                "ad_hoc": "No formal accountability framework exists between shared service providers and consumers. Service expectations are undefined, and disputes are resolved through ad hoc escalation.",
+                "foundational": "Basic service expectations are communicated informally, but no formal SLAs or accountability mechanisms exist. Consumer satisfaction with shared services is not systematically measured.",
+                "managed": "Formal SLAs define service expectations, performance metrics, and escalation procedures between shared service providers and consumers. Regular service reviews with consumer representatives drive continuous improvement.",
+                "optimized": "Comprehensive governance model includes formal SLAs, financial transparency, consumer advisory boards, and market-competitive benchmarking. Shared services operate with utility-like accountability, and consumers have meaningful voice in service evolution and investment priorities."
               }
             }
           ]
@@ -2756,6 +3356,16 @@
                 "foundational": "Periodic satisfaction surveys are conducted, but response rates are low and results are not systematically used to drive improvements. Complaint resolution processes are informal.",
                 "managed": "A structured customer experience program includes regular satisfaction measurement, formal complaint and escalation processes, and service improvement plans based on consumer feedback.",
                 "optimized": "Customer experience excellence drives shared service management. Real-time feedback mechanisms, journey mapping, and co-design processes with consumers ensure services evolve to meet changing needs. Net promoter scores and customer effort scores are tracked and improving."
+              }
+            },
+            {
+              "id": "ss-4-4",
+              "text": "How effectively does the organization benchmark its shared service costs and quality against commercial alternatives and other government providers?",
+              "rubric": {
+                "ad_hoc": "No benchmarking of shared services against alternatives is performed. The organization has no basis for assessing whether its shared services are cost-competitive or quality-competitive.",
+                "foundational": "Informal comparisons to commercial alternatives occur during procurement events, but systematic benchmarking of shared service cost and quality is not performed.",
+                "managed": "Shared service costs and quality are periodically benchmarked against commercial alternatives and peer government providers. Benchmarking results inform service improvement priorities and make-vs-buy decisions.",
+                "optimized": "Continuous benchmarking of shared services against multiple reference points (commercial, government peers, QSMOs) drives competitive service delivery. Benchmark data is transparently shared with consumers and informs strategic service direction."
               }
             }
           ]
@@ -2801,6 +3411,16 @@
                 "managed": "Cloud migration financial planning includes comprehensive cost modeling (migration costs, transition period dual-running costs, ongoing operating costs, decommission savings). Business cases compare cloud vs. on-premises TCO.",
                 "optimized": "Sophisticated financial models incorporate dynamic pricing, reserved capacity optimization, and application-specific cost profiles. Financial outcomes of past migrations inform future estimates. Migration ROI is tracked and validated."
               }
+            },
+            {
+              "id": "cm-1-4",
+              "text": "How well does the organization's cloud strategy incorporate multi-cloud or hybrid-cloud approaches to avoid vendor lock-in and optimize for workload requirements?",
+              "rubric": {
+                "ad_hoc": "The organization has no multi-cloud or hybrid strategy. Cloud adoption is limited to a single provider or done ad hoc without strategic consideration of workload placement.",
+                "foundational": "Awareness of multi-cloud benefits exists, but the organization defaults to a single cloud provider. Hybrid integration between cloud and on-premises environments is limited and technically challenging.",
+                "managed": "A formal multi-cloud or hybrid strategy defines workload placement criteria based on requirements (security, performance, cost, data sovereignty). Integration patterns between cloud providers and on-premises environments are documented and tested.",
+                "optimized": "Mature multi-cloud management with automated workload placement optimization, consistent governance across environments, and seamless hybrid integration. The organization leverages provider competition to negotiate optimal pricing and service terms aligned with FedRAMP and Cloud Smart strategy."
+              }
             }
           ]
         },
@@ -2837,6 +3457,16 @@
                 "managed": "A hybrid management strategy defines consistent approaches to security, networking, monitoring, and cost management across on-premises and cloud. Unified tooling provides cross-environment visibility.",
                 "optimized": "Seamless hybrid management enables transparent workload mobility between environments. Unified governance, security, and cost management operate consistently regardless of hosting model."
               }
+            },
+            {
+              "id": "cm-2-4",
+              "text": "How effectively does the organization track and report data center optimization metrics required by DCOI, including PUE, virtualization, and server utilization?",
+              "rubric": {
+                "ad_hoc": "DCOI metrics are not systematically tracked. Data center optimization reporting is manually compiled and submitted reactively to meet compliance deadlines.",
+                "foundational": "Basic DCOI metrics are collected, but data quality is inconsistent. PUE calculations may not follow OMB methodology, and server utilization data is estimated rather than measured.",
+                "managed": "DCOI metrics are accurately tracked using automated measurement tools. PUE, virtualization ratios, and server utilization are monitored continuously and reported per OMB guidance. Optimization actions are linked to metric improvements.",
+                "optimized": "Comprehensive DCOI compliance with industry-leading optimization metrics. Automated monitoring drives real-time optimization actions. The organization exceeds OMB targets and uses optimization data to inform cloud migration cost-benefit analyses."
+              }
             }
           ]
         },
@@ -2872,6 +3502,26 @@
                 "foundational": "Basic awareness of workforce impact exists, and some training is provided for new technologies, but workforce planning is not integrated with modernization planning.",
                 "managed": "Workforce impact assessments are a standard part of modernization planning. Training programs, hiring plans, and organizational change management are included in modernization budgets and timelines.",
                 "optimized": "Proactive workforce transformation programs continuously develop cloud-native and modern technology skills. The organization attracts and retains modern technology talent and manages the transition from legacy skills strategically."
+              }
+            },
+            {
+              "id": "cm-3-4",
+              "text": "How well does the organization apply the appropriate cloud migration strategy (rehost, replatform, refactor, retire, retain) for each application based on objective analysis?",
+              "rubric": {
+                "ad_hoc": "No structured cloud migration decision framework exists. Migration decisions are made ad hoc based on technical preference or vendor marketing rather than objective workload analysis.",
+                "foundational": "A basic migration decision framework exists, but application assessments are superficial. Most migrations default to rehosting without evaluating whether replatforming or refactoring would deliver greater value.",
+                "managed": "A structured 6-R assessment framework is applied to all migration candidates, evaluating technical complexity, business value, cost implications, and security requirements. Migration strategies are tailored to each application and documented in migration plans.",
+                "optimized": "Comprehensive, data-driven migration analysis uses automated assessment tools, application dependency mapping, and financial modeling to determine optimal migration strategies. Post-migration reviews validate strategy selection and inform future assessments."
+              }
+            },
+            {
+              "id": "cm-3-5",
+              "text": "How effectively does the organization manage application modernization to leverage cloud-native capabilities (containers, serverless, managed services) for improved agility and cost efficiency?",
+              "rubric": {
+                "ad_hoc": "Application modernization to leverage cloud-native capabilities is not pursued. Migrated applications run as-is in cloud environments without taking advantage of cloud-native services.",
+                "foundational": "Some applications have been partially modernized (e.g., containerized), but cloud-native adoption is limited to pilot projects. Development teams lack skills and tools for cloud-native development.",
+                "managed": "A cloud-native modernization program systematically evaluates applications for containerization, serverless adoption, and managed service utilization. Development teams are trained in cloud-native practices, and a platform engineering function supports adoption.",
+                "optimized": "Cloud-native development is the standard for new applications and actively pursued for existing systems. A mature platform engineering practice provides self-service development environments, CI/CD pipelines, and observability. Cloud-native adoption metrics demonstrate measurable improvements in deployment velocity and operational cost."
               }
             }
           ]
@@ -2919,6 +3569,16 @@
                 "managed": "Defined value metrics (cost savings, performance improvement, user satisfaction, mission capability) are tracked for all significant modernization investments. Value realization reports are shared with leadership.",
                 "optimized": "Comprehensive value management tracks the full business impact of modernization, including cost reduction, service improvement, agility gains, risk reduction, and mission capability enhancement. Value data builds the case for continued modernization investment and informs strategy adjustments."
               }
+            },
+            {
+              "id": "cm-4-5",
+              "text": "How well does the organization align cloud security architecture with the federal Zero Trust maturity model and CISA guidance?",
+              "rubric": {
+                "ad_hoc": "Cloud security architecture does not incorporate Zero Trust principles. Traditional perimeter-based security models are applied to cloud environments without adaptation.",
+                "foundational": "Some Zero Trust concepts are acknowledged in cloud security design, but implementation is limited to basic identity verification. CISA Zero Trust maturity model guidance has not been systematically assessed against current capabilities.",
+                "managed": "Cloud security architecture is aligned with CISA Zero Trust maturity model across identity, device, network, application, and data pillars. A phased implementation roadmap addresses gaps, and progress is tracked against OMB M-22-09 milestones.",
+                "optimized": "Advanced Zero Trust implementation in cloud environments with continuous verification, micro-segmentation, encrypted traffic inspection, and data-centric security. The organization achieves optimal maturity across CISA pillars and serves as a model for peer agencies."
+              }
             }
           ]
         }
@@ -2963,6 +3623,26 @@
                 "managed": "Cybersecurity spending is accurately reported per federal requirements, with clear documentation of methodology. CDM program investments and outcomes are tracked and reported.",
                 "optimized": "Automated cybersecurity spending reporting meets all federal requirements with high data quality. The organization goes beyond compliance to use reported data for internal optimization and strategic planning."
               }
+            },
+            {
+              "id": "ci-1-4",
+              "text": "How well does the organization track cybersecurity spending as a percentage of total IT spending and benchmark it against federal averages and NIST framework coverage?",
+              "rubric": {
+                "ad_hoc": "Cybersecurity spending is not separately tracked from overall IT spending. The organization cannot report its cybersecurity investment level or compare it to benchmarks.",
+                "foundational": "Basic cybersecurity spending is tracked at a high level, but the total is estimated and may not capture all security-related costs (e.g., embedded security in application development, personnel training).",
+                "managed": "Cybersecurity spending is comprehensively tracked, including direct and embedded security costs. Spending is benchmarked against federal averages and analyzed by NIST CSF function (Identify, Protect, Detect, Respond, Recover).",
+                "optimized": "Cybersecurity investment analytics provide real-time visibility into spending by NIST CSF function, threat category, and asset class. Investment levels are continuously benchmarked and optimized to maximize risk reduction per dollar invested."
+              }
+            },
+            {
+              "id": "ci-1-5",
+              "text": "How effectively does the organization allocate cybersecurity investments across prevention, detection, and response capabilities based on threat landscape analysis?",
+              "rubric": {
+                "ad_hoc": "Cybersecurity investment allocation is not informed by threat analysis. Spending is concentrated on compliance-driven controls without assessing whether the investment mix addresses the most significant threats.",
+                "foundational": "High-level threat awareness influences some investment decisions, but allocation across prevention, detection, and response is not strategically balanced. Compliance-driven spending dominates over risk-informed investment.",
+                "managed": "Cybersecurity investment allocation is informed by threat landscape analysis, vulnerability assessments, and risk prioritization. A balanced portfolio funds prevention, detection, and response capabilities proportional to assessed risk.",
+                "optimized": "Dynamic, threat-informed cybersecurity investment optimization continuously adjusts allocation based on real-time threat intelligence, incident data, and attack surface changes. Investment effectiveness is measured through metrics like mean time to detect and respond."
+              }
             }
           ]
         },
@@ -2998,6 +3678,16 @@
                 "foundational": "Awareness exists that balanced investment is important, but no systematic analysis ensures appropriate distribution across preventive, detective, and responsive capabilities.",
                 "managed": "Investment analysis evaluates the balance across prevention, detection, and response. Gaps are identified through capability maturity assessment and addressed through targeted investment.",
                 "optimized": "Dynamic investment balancing uses threat modeling, attack simulation results, and maturity assessments to optimize the distribution of spending across all security capability areas."
+              }
+            },
+            {
+              "id": "ci-2-4",
+              "text": "How well does the organization quantify cyber risk in financial terms to support investment decision-making and communicate risk exposure to leadership?",
+              "rubric": {
+                "ad_hoc": "Cyber risk is described qualitatively (high/medium/low) without financial quantification. Leadership cannot assess whether cybersecurity investments are proportional to actual risk exposure.",
+                "foundational": "Some cyber risk quantification is attempted for major threat scenarios, but methodologies are informal and results are not consistently used in investment decisions.",
+                "managed": "Cyber risk is quantified using established methodologies (e.g., FAIR framework) for priority threat scenarios. Financial risk estimates inform cybersecurity budget requests and are communicated to leadership in business terms.",
+                "optimized": "Comprehensive cyber risk quantification covers all significant threat scenarios with probabilistic financial impact models. Risk quantification is automated, continuously updated with threat intelligence, and directly linked to investment prioritization and insurance decisions."
               }
             }
           ]
@@ -3035,6 +3725,16 @@
                 "managed": "Executive cybersecurity reporting translates security metrics into business terms, showing investment effectiveness, risk reduction trends, and benchmarking against peers. Reports inform budget and investment decisions.",
                 "optimized": "Real-time executive dashboards provide business-contextualized cybersecurity investment visibility. Board-level reporting connects cybersecurity investment to enterprise risk management and strategic objectives."
               }
+            },
+            {
+              "id": "ci-3-4",
+              "text": "How effectively does the organization measure the return on cybersecurity investments through metrics such as risk reduction, incident cost avoidance, and compliance achievement?",
+              "rubric": {
+                "ad_hoc": "No measurement of cybersecurity investment returns exists. Security spending is justified through compliance mandates rather than demonstrated value or risk reduction.",
+                "foundational": "Basic metrics exist for some cybersecurity investments (e.g., number of incidents prevented, compliance scores achieved), but ROI is not systematically calculated or reported.",
+                "managed": "Cybersecurity ROI is measured through defined metrics including risk reduction (quantified exposure change), incident cost avoidance, and compliance achievement rates. ROI analysis informs budget requests and investment prioritization.",
+                "optimized": "Comprehensive cybersecurity ROI measurement is continuous and automated. Multi-dimensional value metrics (risk reduction, operational efficiency, compliance, business enablement) are tracked at the investment level and aggregated for portfolio-level value reporting."
+              }
             }
           ]
         },
@@ -3070,6 +3770,26 @@
                 "foundational": "CDM capabilities are acknowledged, but investment planning does not systematically coordinate agency cybersecurity spending with CDM-provided capabilities. Gaps and overlaps between CDM and agency tools are not analyzed.",
                 "managed": "Cybersecurity investment planning coordinates with CDM program capabilities to avoid duplication and maximize coverage. Agency-funded investments complement CDM and align with CISA requirements and BOD/ED directives.",
                 "optimized": "Fully integrated cybersecurity investment management optimizes spending across agency-funded and CDM-provided capabilities. The organization actively engages with CISA on CDM evolution and uses CDM data to inform risk-based investment decisions. Comprehensive coverage mapping demonstrates alignment with federal cybersecurity strategy."
+              }
+            },
+            {
+              "id": "ci-4-4",
+              "text": "How well does the organization invest in cybersecurity workforce development, including recruitment, retention, training, and skills assessment aligned with NICE framework?",
+              "rubric": {
+                "ad_hoc": "Cybersecurity workforce development is ad hoc with no structured program for recruitment, retention, or skills development. Training is limited to basic awareness and compliance certifications.",
+                "foundational": "Some cybersecurity training budget exists, but workforce development is not strategically planned. Recruitment challenges are addressed reactively, and retention strategies are limited. NICE framework alignment has not been assessed.",
+                "managed": "A comprehensive cybersecurity workforce development program addresses recruitment, retention, training, and skills assessment. Work roles are mapped to the NICE framework, and skills gaps are systematically identified and addressed through targeted training and hiring.",
+                "optimized": "Strategic cybersecurity workforce management includes competitive compensation strategies, career development pathways, rotation programs, and continuous skills assessment against NICE framework. The organization participates in CyberCorps and federal cyber reskilling initiatives, and workforce metrics are reported per FISMA requirements."
+              }
+            },
+            {
+              "id": "ci-4-5",
+              "text": "How effectively does the organization budget for and manage cybersecurity tool rationalization to avoid redundant capabilities and optimize security technology spending?",
+              "rubric": {
+                "ad_hoc": "Cybersecurity tools are acquired independently without portfolio-level visibility. Significant overlap in capabilities exists across tools, and total security tool spending is unknown.",
+                "foundational": "A basic inventory of cybersecurity tools exists, but capability overlap analysis is not performed. Tool acquisition continues without assessing whether existing tools can meet the need.",
+                "managed": "Cybersecurity tool portfolio is actively managed with capability mapping, overlap analysis, and utilization assessment. Tool rationalization reviews occur annually, and new acquisitions require justification against existing capabilities.",
+                "optimized": "Optimized cybersecurity tool portfolio with automated capability mapping, integration scoring, and cost-effectiveness analysis. Rationalization is continuous, and the organization maximizes value from its security technology investments through consolidation, API integration, and platform strategies."
               }
             }
           ]
