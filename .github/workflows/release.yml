@@ -67,7 +67,9 @@ jobs:
           if [ -d templates ]; then cp -r templates dist/${{ matrix.artifact }}/; else mkdir dist/${{ matrix.artifact }}/templates; fi
           if [ -f README.txt ]; then cp README.txt dist/${{ matrix.artifact }}/; fi
           mkdir -p dist/${{ matrix.artifact }}/exports
-          cd dist && zip -r ${{ matrix.artifact }}.zip ${{ matrix.artifact }}
+          VERSION=${GITHUB_REF#refs/tags/}
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then VERSION="${{ github.event.inputs.tag }}"; fi
+          cd dist && zip -r ${{ matrix.artifact }}-${VERSION}.zip ${{ matrix.artifact }}
 
       - name: Assemble distribution (Windows)
         if: matrix.platform == 'windows'
@@ -79,12 +81,18 @@ jobs:
           if (Test-Path "templates") { Copy-Item -Recurse "templates" "dist/${{ matrix.artifact }}/templates" } else { New-Item -ItemType Directory -Force -Path "dist/${{ matrix.artifact }}/templates" }
           if (Test-Path "README.txt") { Copy-Item "README.txt" "dist/${{ matrix.artifact }}/" }
           New-Item -ItemType Directory -Force -Path "dist/${{ matrix.artifact }}/exports"
-          Compress-Archive -Path "dist/${{ matrix.artifact }}" -DestinationPath "dist/${{ matrix.artifact }}.zip"
+          $version = if ("${{ github.event_name }}" -eq "workflow_dispatch") { "${{ github.event.inputs.tag }}" } else { "${{ github.ref }}".Replace("refs/tags/","") }
+          Compress-Archive -Path "dist/${{ matrix.artifact }}" -DestinationPath "dist/${{ matrix.artifact }}-${version}.zip"
+
+      - name: Find ZIP
+        id: zip
+        shell: bash
+        run: echo "path=$(ls dist/${{ matrix.artifact }}-*.zip)" >> "$GITHUB_OUTPUT"
 
       - uses: actions/upload-artifact@v4
         with:
           name: ${{ matrix.artifact }}
-          path: dist/${{ matrix.artifact }}.zip
+          path: ${{ steps.zip.outputs.path }}
 
   release:
     needs: build
@@ -110,5 +118,5 @@ jobs:
           draft: true
           generate_release_notes: true
           files: |
-            artifacts/TBM-Assessment-macos/TBM-Assessment-macos.zip
-            artifacts/TBM-Assessment-windows/TBM-Assessment-windows.zip
+            artifacts/TBM-Assessment-macos/TBM-Assessment-macos-${{ steps.tag.outputs.version }}.zip
+            artifacts/TBM-Assessment-windows/TBM-Assessment-windows-${{ steps.tag.outputs.version }}.zip
