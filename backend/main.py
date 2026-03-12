@@ -25,9 +25,16 @@ def get_base_dir() -> str:
     return str(Path(__file__).parent.parent)
 
 
+def get_resource_dir() -> str:
+    if getattr(sys, "frozen", False):
+        return sys._MEIPASS
+    return str(Path(__file__).parent.parent)
+
+
 BASE_DIR = get_base_dir()
-data_manager = DataManager(BASE_DIR)
-export_engine = ExportEngine(BASE_DIR)
+RESOURCE_DIR = get_resource_dir()
+data_manager = DataManager(BASE_DIR, resource_dir=RESOURCE_DIR)
+export_engine = ExportEngine(BASE_DIR, resource_dir=RESOURCE_DIR)
 
 app = FastAPI(title="Technology Business Management Assessment Tool", version="1.0.0")
 
@@ -100,9 +107,9 @@ async def export_deliverable(export_type: str):
 
 
 # Static file serving
-static_dir = Path(BASE_DIR) / "backend" / "static"
+static_dir = Path(RESOURCE_DIR) / "backend" / "static"
 if not static_dir.exists():
-    static_dir = Path(BASE_DIR) / "static"
+    static_dir = Path(RESOURCE_DIR) / "static"
 
 if static_dir.exists() and (static_dir / "index.html").exists():
     assets_dir = static_dir / "assets"

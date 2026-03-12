@@ -17,13 +17,14 @@ except ImportError:
 
 
 class DataManager:
-    def __init__(self, base_dir: str):
+    def __init__(self, base_dir: str, resource_dir: str | None = None):
         self.base_dir = Path(base_dir)
+        self.resource_dir = Path(resource_dir) if resource_dir else self.base_dir
         self.data_path = self.base_dir / "data.json"
         self.backup_path = self.base_dir / "data.json.bak"
-        self.framework_path = self.base_dir / "framework" / "assessment-framework.json"
+        self.framework_path = self.resource_dir / "framework" / "assessment-framework.json"
         self.exports_dir = self.base_dir / "exports"
-        self.templates_dir = self.base_dir / "templates"
+        self.templates_dir = self.resource_dir / "templates"
         self._framework: dict | None = None
 
     def load_framework(self) -> dict:

@@ -15,10 +15,11 @@ SCORE_LABELS = {1: "Ad Hoc", 2: "Foundational", 3: "Managed", 4: "Optimized"}
 
 
 class ExportEngine:
-    def __init__(self, base_dir: str):
+    def __init__(self, base_dir: str, resource_dir: str | None = None):
         self.base_dir = Path(base_dir)
+        self.resource_dir = Path(resource_dir) if resource_dir else self.base_dir
         self.exports_dir = self.base_dir / "exports"
-        self.templates_dir = self.base_dir / "templates"
+        self.templates_dir = self.resource_dir / "templates"
 
     def _ensure_exports_dir(self):
         self.exports_dir.mkdir(exist_ok=True)
