@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
-import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useLocation, useNavigate } from 'react-router-dom';
 import { StoreProvider, useStore } from './store';
+import { useNextUnscored } from './hooks/useNextUnscored';
 import { Sidebar } from './components/Sidebar';
 import { CommandPalette } from './components/CommandPalette';
 import { StatsFooter } from './components/StatsFooter';
@@ -20,7 +21,14 @@ const SIDEBAR_COLLAPSED = 56;
 
 function AppShell() {
   const location = useLocation();
-  const { loading } = useStore();
+  const navigate = useNavigate();
+  const { loading, data } = useStore();
+  const nextUnscored = useNextUnscored(data);
+  const goToNextUnscored = useCallback(() => {
+    if (nextUnscored) {
+      navigate(`${nextUnscored.path}?focus=${nextUnscored.itemId}`);
+    }
+  }, [nextUnscored, navigate]);
   const stored = (() => {
     try {
       return JSON.parse(localStorage.getItem(STORAGE_KEY) ?? '{}') as Record<string, unknown>;
@@ -52,10 +60,14 @@ function AppShell() {
         e.preventDefault();
         setCollapsed((c) => !c);
       }
+      if ((e.metaKey || e.ctrlKey) && e.key === 'ArrowRight') {
+        e.preventDefault();
+        goToNextUnscored();
+      }
     };
     window.addEventListener('keydown', handler);
     return () => window.removeEventListener('keydown', handler);
-  }, []);
+  }, [goToNextUnscored]);
 
   const onMouseDownDivider = useCallback(
     (e: React.MouseEvent) => {
