@@ -9,9 +9,14 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
 import uvicorn
 
-from .models import AssessmentData
-from .data_manager import DataManager
-from .export_engine import ExportEngine
+try:
+    from .models import AssessmentData
+    from .data_manager import DataManager
+    from .export_engine import ExportEngine
+except ImportError:
+    from models import AssessmentData
+    from data_manager import DataManager
+    from export_engine import ExportEngine
 
 
 def get_base_dir() -> str:

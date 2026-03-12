@@ -4,10 +4,16 @@ import shutil
 import tempfile
 from pathlib import Path
 from datetime import datetime
-from .models import (
-    AssessmentData, AssessmentItem, CapabilityArea, Discipline,
-    ClientInfo, AssessmentMetadata, ScoringConfig,
-)
+try:
+    from .models import (
+        AssessmentData, AssessmentItem, CapabilityArea, Discipline,
+        ClientInfo, AssessmentMetadata, ScoringConfig,
+    )
+except ImportError:
+    from models import (
+        AssessmentData, AssessmentItem, CapabilityArea, Discipline,
+        ClientInfo, AssessmentMetadata, ScoringConfig,
+    )
 
 
 class DataManager:
