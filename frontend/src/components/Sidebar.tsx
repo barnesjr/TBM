@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import { useStore } from '@/store';
+import { disciplineScore, disciplineCompletion } from '@/scoring';
 import type { Discipline } from '@/types';
 import {
   DollarSign,
@@ -44,20 +45,6 @@ const DISCIPLINE_ICONS: Record<string, React.ComponentType<{ className?: string;
   'cloud-modernization': Cloud,
   'cybersecurity-investment': Lock,
 };
-
-function disciplineScore(disc: Discipline): number | null {
-  const scored = disc.capability_areas.flatMap((ca) => ca.items).filter((i) => i.score !== null && !i.na);
-  if (scored.length === 0) return null;
-  return scored.reduce((sum, i) => sum + (i.score ?? 0), 0) / scored.length;
-}
-
-function disciplineCompletion(disc: Discipline): number {
-  const items = disc.capability_areas.flatMap((ca) => ca.items);
-  const total = items.length;
-  if (total === 0) return 0;
-  const done = items.filter((i) => i.score !== null || i.na).length;
-  return done / total;
-}
 
 function scoreColor(score: number): string {
   if (score >= 3.25) return 'var(--color-score-optimized)';
