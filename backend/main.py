@@ -11,6 +11,7 @@ import uvicorn
 
 from .models import AssessmentData
 from .data_manager import DataManager
+from .export_engine import ExportEngine
 
 
 def get_base_dir() -> str:
@@ -21,6 +22,7 @@ def get_base_dir() -> str:
 
 BASE_DIR = get_base_dir()
 data_manager = DataManager(BASE_DIR)
+export_engine = ExportEngine(BASE_DIR)
 
 app = FastAPI(title="Technology Business Management Assessment Tool", version="1.0.0")
 
@@ -69,7 +71,27 @@ VALID_EXPORT_TYPES = [
 async def export_deliverable(export_type: str):
     if export_type not in VALID_EXPORT_TYPES:
         raise HTTPException(status_code=400, detail=f"Unknown export type: {export_type}")
-    raise HTTPException(status_code=501, detail="Exports not yet implemented")
+    try:
+        data = data_manager.load_assessment()
+        method_map = {
+            "findings": export_engine.export_findings,
+            "executive-summary": export_engine.export_executive_summary,
+            "gap-analysis": export_engine.export_gap_analysis,
+            "workbook": export_engine.export_workbook,
+            "outbrief": export_engine.export_outbrief,
+            "heatmap": export_engine.export_heatmap,
+            "quick-wins": export_engine.export_quick_wins,
+            "cost-transparency-roadmap": export_engine.export_cost_transparency_roadmap,
+        }
+        if export_type == "all":
+            filenames = export_engine.export_all(data.model_dump())
+        else:
+            filenames = [method_map[export_type](data.model_dump())]
+        return {"filenames": filenames}
+    except HTTPException:
+        raise
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
 
 
 # Static file serving
