@@ -5,7 +5,8 @@ import {
   disciplineScore,
   disciplineCompletion,
 } from '@/scoring';
-import { getMaturityBand, MATURITY_BANDS, SCORE_LABELS } from '@/types';
+import { getMaturityBand, MATURITY_BANDS } from '@/types';
+import { OnboardingTooltip } from '@/components/OnboardingTooltip';
 import {
   RadarChart,
   Radar,
@@ -81,7 +82,7 @@ export default function Dashboard() {
       {/* Top row: Composite Score, Maturity Band, Progress */}
       <div className="grid grid-cols-3 gap-5 mb-6">
         {/* Composite Score */}
-        <Card>
+        <Card className="relative">
           <SectionLabel>Overall Maturity Score</SectionLabel>
           {composite !== null ? (
             <>
@@ -95,6 +96,9 @@ export default function Dashboard() {
           ) : (
             <div className="text-3xl text-text-tertiary mt-1">--</div>
           )}
+          <OnboardingTooltip id="dashboard-composite-hint" position="bottom">
+            This composite score is a weighted average across all enabled disciplines. Adjust weights in Settings.
+          </OnboardingTooltip>
         </Card>
 
         {/* Maturity Band legend */}

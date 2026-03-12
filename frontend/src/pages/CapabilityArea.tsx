@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { useStore } from '@/store';
 import { Breadcrumb } from '@/components/Breadcrumb';
 import { AssessmentItemCard } from '@/components/AssessmentItemCard';
+import { OnboardingTooltip } from '@/components/OnboardingTooltip';
 import { capabilityAreaScore } from '@/scoring';
 import { getMaturityBand } from '@/types';
 import type { AssessmentItem, FrameworkItem } from '@/types';
@@ -175,9 +176,12 @@ export default function CapabilityArea() {
       </div>
 
       {/* Keyboard hint */}
-      <div className="text-[10px] text-text-tertiary mb-4">
+      <div className="relative text-[10px] text-text-tertiary mb-4">
         <span className="font-medium">Keyboard:</span> 1-4 score, H/M/L confidence, N toggle N/A,
         j/k navigate, Enter expand, Esc unfocus
+        <OnboardingTooltip id="capability-keyboard-hint" position="bottom">
+          Use keyboard shortcuts to score quickly: press 1-4 to set a score, H/M/L for confidence, and arrow keys to navigate between items.
+        </OnboardingTooltip>
       </div>
 
       {/* Items list */}
