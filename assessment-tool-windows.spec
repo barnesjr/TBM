@@ -14,7 +14,7 @@ if os.path.isdir(str(BASE / 'templates')):
 
 a = Analysis(
     [str(BASE / 'backend' / 'main.py')],
-    pathex=[str(BASE)],
+    pathex=[str(BASE), str(BASE / 'backend')],
     binaries=[],
     datas=datas,
     hiddenimports=[
