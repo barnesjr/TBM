@@ -1,0 +1,15 @@
+.superpowers/
+node_modules/
+.DS_Store
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+backend/static/
+exports/
+data.json
+data.json.bak
+*.json.tmp
+dist/
+build_temp/
+*.spec.bak
