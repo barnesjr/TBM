@@ -1,7 +1,6 @@
-# Assessment Tool — Meta Prompt Template
+# Technology Business Management Assessment Tool — Implementation Prompt
 
-> **Purpose:** Reusable prompt template for building Peraton assessment tools.
-> Copy this file, replace all `{{PLACEHOLDER}}` values with your domain-specific content, and use it as the implementation prompt for Claude Code.
+> **Purpose:** Implementation prompt for building the TBM Assessment Tool in Claude Code.
 
 ---
 
@@ -58,104 +57,106 @@ pip install -r requirements.txt
 
 ## 3. Domain Configuration
 
-Replace every `{{PLACEHOLDER}}` below with your assessment domain's values.
-
 ### Identity
 ```
-{{TOOL_NAME}}              # e.g., "ITSM Maturity Assessment Tool"
-{{TOOL_SLUG}}              # e.g., "itsm-assessment" (used in filenames, dist folder)
-{{FRAMEWORK_ALIGNMENT}}    # e.g., "ITIL v3/v4", "CISA ZTMM v2.0"
-{{SIDEBAR_STORAGE_KEY}}    # e.g., "itsm-sidebar", "zt-sidebar"
-{{DEFAULT_PORT}}           # e.g., 8741 (auto-scans 8741-8750)
+TOOL_NAME              = "Technology Business Management Assessment Tool"
+TOOL_SLUG              = "tbm-assessment"
+FRAMEWORK_ALIGNMENT    = "TBM Council Framework / OMB M-17-22"
+SIDEBAR_STORAGE_KEY    = "tbm-sidebar"
+DEFAULT_PORT           = 8751  # auto-scans 8751-8760
 ```
 
 ### Hierarchy Model
 
-Assessment tools support two hierarchy styles. Choose one:
+This tool uses a **flat (2-level) hierarchy** with **supplemental disciplines**:
 
-**Option A — Grouped (3-level nesting):**
 ```
-{{TOP_LEVEL_LABEL}}        # e.g., "Domain Group" (container of domains)
-  └── {{MID_LEVEL_LABEL}}  # e.g., "Domain" (scored + weighted)
-       └── Capability Area
-            └── Assessment Item
-```
-
-**Option B — Flat (2-level nesting):**
-```
-{{TOP_LEVEL_LABEL}}        # e.g., "Pillar" (scored + weighted)
+Discipline (scored + weighted)
   └── Capability Area
        └── Assessment Item
 ```
 
+#### Core Disciplines (always enabled)
+```json
+[
+  {"id": "cost-transparency",       "name": "IT Cost Transparency",         "weight": 0.125},
+  {"id": "budget-forecasting",      "name": "Budget & Forecasting",         "weight": 0.125},
+  {"id": "benchmarking",            "name": "Benchmarking & Performance",   "weight": 0.125},
+  {"id": "service-portfolio",       "name": "Service Portfolio Management", "weight": 0.125},
+  {"id": "demand-management",       "name": "Demand Management",            "weight": 0.125},
+  {"id": "investment-prioritization","name": "Investment Prioritization",   "weight": 0.125},
+  {"id": "vendor-contract",         "name": "Vendor & Contract Management", "weight": 0.125},
+  {"id": "asset-management",        "name": "Technology Asset Management",  "weight": 0.125}
+]
 ```
-{{HIERARCHY_STYLE}}        # "grouped" or "flat"
-{{TOP_LEVEL_ENTITIES}}     # JSON array, e.g.:
-                           # Grouped: [{"id":"service-operations","name":"Service Operations","children":["incident","problem","service-desk"]}]
-                           # Flat: [{"id":"identity","name":"Identity","weight":0.25}]
-{{MID_LEVEL_ENTITIES}}     # (Grouped only) JSON array of domains with weights
-                           # e.g., [{"id":"incident","name":"Incident Management","weight":0.083}]
+
+#### Supplemental Disciplines (individually toggleable in Settings)
+
+When a supplemental discipline is toggled on, all discipline weights (core + enabled supplemental) auto-rebalance to equal weight. These are visually grouped under a "Supplemental Disciplines" header in the sidebar and Settings page.
+
+```json
+[
+  {"id": "federal-compliance",    "name": "Federal Compliance & Reporting",       "supplemental": true},
+  {"id": "shared-services",      "name": "Shared Services & Consolidation",      "supplemental": true},
+  {"id": "cloud-modernization",  "name": "Cloud & Modernization Investment",     "supplemental": true},
+  {"id": "cybersecurity-investment", "name": "Cybersecurity Investment Management", "supplemental": true}
+]
 ```
 
 ### Scoring
 ```
-{{SCORE_SCALE}}            # e.g., "1-4"
-{{SCORE_LABELS}}           # e.g., {1:"Initial", 2:"Developing", 3:"Established", 4:"Optimizing"}
-                           # or    {1:"Traditional", 2:"Initial", 3:"Advanced", 4:"Optimal"}
-{{SCORE_COLORS}}           # e.g., {1:"#ef4444", 2:"#f97316", 3:"#84cc16", 4:"#22c55e"}
-{{RUBRIC_KEYS}}            # Lowercase keys matching score labels
-                           # e.g., ["initial","developing","established","optimizing"]
-                           # or    ["traditional","initial","advanced","optimal"]
+SCORE_SCALE            = "1-4"
+SCORE_LABELS           = {1: "Ad Hoc", 2: "Foundational", 3: "Managed", 4: "Optimized"}
+SCORE_COLORS           = {1: "#ef4444", 2: "#f97316", 3: "#84cc16", 4: "#22c55e"}
+RUBRIC_KEYS            = ["ad_hoc", "foundational", "managed", "optimized"]
 ```
 
 ### Maturity Bands
-```
-{{MATURITY_BANDS}}         # Array of {min, max, label, color}, e.g.:
-                           # [
-                           #   {min:1.0, max:1.5, label:"Reactive",    color:"#ef4444"},
-                           #   {min:1.5, max:2.0, label:"Emerging",    color:"#f97316"},
-                           #   {min:2.0, max:2.5, label:"Developing",  color:"#eab308"},
-                           #   {min:2.5, max:3.0, label:"Established", color:"#84cc16"},
-                           #   {min:3.0, max:3.5, label:"Managed",     color:"#22c55e"},
-                           #   {min:3.5, max:4.0, label:"Optimizing",  color:"#15803d"}
-                           # ]
+```json
+[
+  {"min": 1.0,  "max": 1.75, "label": "Ad Hoc",        "color": "#ef4444"},
+  {"min": 1.75, "max": 2.5,  "label": "Foundational",  "color": "#f97316"},
+  {"min": 2.5,  "max": 3.25, "label": "Managed",       "color": "#84cc16"},
+  {"min": 3.25, "max": 4.0,  "label": "Optimized",     "color": "#22c55e"}
+]
 ```
 
 ### Weighting Models
+```json
+{
+  "balanced": {
+    "label": "Balanced",
+    "weights": "equal weight across all enabled disciplines (auto-calculated)"
+  },
+  "custom": {
+    "label": "Custom",
+    "weights": "user-defined per-discipline weights"
+  }
+}
 ```
-{{WEIGHTING_MODELS}}       # Named presets, e.g.:
-                           # {
-                           #   "balanced":  {label:"Balanced", weights:{...equal...}},
-                           #   "ops_heavy": {label:"Operations-Heavy", weights:{...}},
-                           #   ...
-                           # }
-{{DEFAULT_WEIGHTING}}      # Key of default model, e.g., "balanced"
-{{DEFAULT_TARGET_SCORE}}   # Default per-domain target, e.g., 3.0
+```
+DEFAULT_WEIGHTING      = "balanced"
+DEFAULT_TARGET_SCORE   = 3.0
 ```
 
 ### Exports & Distribution
 ```
-{{EXPORT_TYPES}}           # Array of valid export type strings for POST /api/export/{type}
-                           # e.g., ["findings","executive-summary","gap-analysis","workbook","outbrief","heatmap","quick-wins","itil4-alignment"]
-{{DIST_FOLDER_NAME}}       # Distribution folder name, e.g., "ITSMAssessment", "ZeroTrustAssessment"
+EXPORT_TYPES           = ["findings", "executive-summary", "gap-analysis", "workbook", "outbrief", "heatmap", "quick-wins", "cost-transparency-roadmap"]
+DIST_FOLDER_NAME       = "TBM-Assessment"
 ```
 
-### Optional Extension Module
+### Extension Module
 ```
-{{EXTENSION_ENABLED}}      # true/false — does this tool have an optional module?
-{{EXTENSION_NAME}}         # e.g., "ITIL 4 Module", "Classified Extension"
-{{EXTENSION_LABEL}}        # Short sidebar label, e.g., "ITIL 4", "Classified"
-{{EXTENSION_TOGGLE}}       # How it's enabled: "sidebar switch" or "settings toggle"
-{{EXTENSION_ENTITIES}}     # JSON array of sections/pillars in the extension
-                           # e.g., [{"id":"guiding-principles","name":"Guiding Principles"}]
+EXTENSION_ENABLED      = false
 ```
+> **Note:** This tool does NOT use the formal extension module pattern. Instead, 4 supplemental disciplines have individual toggles in Settings. They use the same routes, models, and scoring as core disciplines.
 
 ---
 
 ## 4. Project Structure
 
 ```
-{{TOOL_SLUG}}/
+tbm-assessment/
 ├── backend/
 │   ├── __init__.py
 │   ├── main.py                        # FastAPI app — serves API + built frontend
@@ -192,12 +193,10 @@ Assessment tools support two hierarchy styles. Choose one:
 │       └── pages/
 │           ├── ClientInfo.tsx         # Client name, industry, date, assessor
 │           ├── Dashboard.tsx          # Composite score, radar chart, progress
-│           ├── {{SUMMARY_PAGE}}.tsx   # Top-level entity summary (pillar or domain)
+│           ├── DisciplineSummary.tsx   # Per-discipline overview with CA scores
 │           ├── CapabilityArea.tsx     # Item-level scoring (main work page)
-│           ├── {{EXTENSION_SUMMARY_PAGE}}.tsx  # (if extension) Extension overview
-│           ├── {{EXTENSION_DETAIL_PAGE}}.tsx   # (if extension) Extension items
 │           ├── Export.tsx             # Export deliverables UI
-│           ├── Settings.tsx           # Weighting model, target scores
+│           ├── Settings.tsx           # Weighting model, target scores, supplemental toggles
 │           └── Help.tsx              # Keyboard shortcuts, documentation
 ├── framework/
 │   └── assessment-framework.json      # Read-only framework definition
@@ -231,50 +230,27 @@ class EvidenceReference(BaseModel):
 class AssessmentItem(BaseModel):
     id: str
     text: str
-    score: Optional[int] = Field(None, ge=1, le={{SCORE_SCALE_MAX}})  # e.g., ge=1, le=4
+    score: Optional[int] = Field(None, ge=1, le=4)
     na: bool = False
     na_justification: Optional[str] = None
     confidence: Optional[str] = None  # "High" | "Medium" | "Low"
     notes: str = ""
     evidence_references: list[EvidenceReference] = Field(default_factory=list)
-    attachments: list[str] = Field(default_factory=list)  # Optional: file attachment paths
+    attachments: list[str] = Field(default_factory=list)
 
 class CapabilityArea(BaseModel):
     id: str
     name: str
     items: list[AssessmentItem] = Field(default_factory=list)
 
-# --- Hierarchy Option A: Grouped ---
-class {{MID_LEVEL_MODEL}}(BaseModel):       # e.g., Domain
+class Discipline(BaseModel):
     id: str
     name: str
     weight: float
+    supplemental: bool = False      # True for the 4 toggleable disciplines
+    enabled: bool = True            # Supplemental disciplines can be toggled off
     capability_areas: list[CapabilityArea] = Field(default_factory=list)
 
-class {{TOP_LEVEL_MODEL}}(BaseModel):       # e.g., DomainGroup
-    id: str
-    name: str
-    {{MID_LEVEL_FIELD}}: list[{{MID_LEVEL_MODEL}}] = Field(default_factory=list)  # e.g., domains
-
-# --- Hierarchy Option B: Flat ---
-class {{TOP_LEVEL_MODEL}}(BaseModel):       # e.g., Pillar
-    id: str
-    name: str
-    weight: float
-    capability_areas: list[CapabilityArea] = Field(default_factory=list)
-
-# --- Optional Extension ---
-class {{EXTENSION_SECTION_MODEL}}(BaseModel):  # e.g., ITIL4Section, ClassifiedPillar
-    id: str
-    name: str
-    capability_areas: list[CapabilityArea] = Field(default_factory=list)
-    # Note: ClassifiedPillar in Zero-Trust uses `items` directly instead of capability_areas
-
-class {{EXTENSION_MODEL}}(BaseModel):          # e.g., ITIL4Extension, ClassifiedExtension
-    enabled: bool = False
-    {{EXTENSION_CHILDREN_FIELD}}: list[{{EXTENSION_SECTION_MODEL}}] = Field(default_factory=list)
-
-# --- Shared Models ---
 class ClientInfo(BaseModel):
     name: str = ""
     industry: str = ""
@@ -287,30 +263,34 @@ class AssessmentMetadata(BaseModel):
     last_modified: str = ""
 
 class ScoringConfig(BaseModel):
-    weighting_model: str = "{{DEFAULT_WEIGHTING}}"
-    {{WEIGHT_FIELD}}: dict[str, float] = Field(default_factory=dict)  # e.g., domain_weights, pillar_weights
+    weighting_model: str = "balanced"
+    discipline_weights: dict[str, float] = Field(default_factory=dict)
     custom_weights: Optional[dict[str, float]] = None
 
 class AssessmentData(BaseModel):
     client_info: ClientInfo = Field(default_factory=ClientInfo)
     assessment_metadata: AssessmentMetadata = Field(default_factory=AssessmentMetadata)
     scoring_config: ScoringConfig = Field(default_factory=ScoringConfig)
-    {{TOP_LEVEL_FIELD}}: list[{{TOP_LEVEL_MODEL}}] = Field(default_factory=list)
-    # Flat hierarchy may also have:
-    # cross_cutting_capabilities: list[CrossCuttingCapability] = Field(default_factory=list)
-    {{EXTENSION_ENABLED_FIELD}}: bool = False     # e.g., itil4_enabled, classified_enabled
-    {{EXTENSION_FIELD}}: Optional[{{EXTENSION_MODEL}}] = None
+    disciplines: list[Discipline] = Field(default_factory=list)
     target_scores: dict[str, float] = Field(default_factory=dict)
 ```
 
 ### Frontend — TypeScript Interfaces (`frontend/src/types.ts`)
 
 ```typescript
-// Score constants — replace with domain values
-export const SCORE_LABELS: Record<number, string> = {{SCORE_LABELS}};
-export const SCORE_COLORS: Record<number, string> = {{SCORE_COLORS}};
-export const MATURITY_BANDS = {{MATURITY_BANDS}};
-export const WEIGHTING_MODELS: Record<string, { label: string; weights: Record<string, number> }> = {{WEIGHTING_MODELS}};
+// Score constants
+export const SCORE_LABELS: Record<number, string> = {1: "Ad Hoc", 2: "Foundational", 3: "Managed", 4: "Optimized"};
+export const SCORE_COLORS: Record<number, string> = {1: "#ef4444", 2: "#f97316", 3: "#84cc16", 4: "#22c55e"};
+export const MATURITY_BANDS = [
+  {min: 1.0, max: 1.75, label: "Ad Hoc",       color: "#ef4444"},
+  {min: 1.75, max: 2.5,  label: "Foundational", color: "#f97316"},
+  {min: 2.5,  max: 3.25, label: "Managed",      color: "#84cc16"},
+  {min: 3.25, max: 4.0,  label: "Optimized",    color: "#22c55e"},
+];
+export const WEIGHTING_MODELS: Record<string, { label: string; weights: Record<string, number> }> = {
+  balanced: { label: "Balanced", weights: {} },  // Auto-calculated equal weights
+  custom:   { label: "Custom",   weights: {} },  // User-defined
+};
 
 // Utility function — maps a numeric score to its maturity band
 export function getMaturityBand(score: number): { label: string; color: string } { ... }
@@ -319,15 +299,13 @@ export function getMaturityBand(score: number): { label: string; color: string }
 export interface EvidenceReference { document: string; section: string; date: string; }
 export interface AssessmentItem { id: string; text: string; score: number | null; na: boolean; na_justification: string | null; confidence: string | null; notes: string; evidence_references: EvidenceReference[]; attachments: string[]; }
 export interface CapabilityArea { id: string; name: string; items: AssessmentItem[]; }
-
-// Hierarchy-specific interfaces (choose A or B)
-// ... mirrors backend models ...
+export interface Discipline { id: string; name: string; weight: number; supplemental: boolean; enabled: boolean; capability_areas: CapabilityArea[]; }
 
 // Framework read-only interfaces
 export interface FrameworkItem { id: string; text: string; rubric: Record<string, string>; }
-// rubric keys = {{RUBRIC_KEYS}}
+// rubric keys = ["ad_hoc", "foundational", "managed", "optimized"]
 export interface FrameworkCapabilityArea { id: string; name: string; items: FrameworkItem[]; }
-// ... rest mirrors framework JSON structure ...
+export interface FrameworkDiscipline { id: string; name: string; weight: number; supplemental: boolean; capability_areas: FrameworkCapabilityArea[]; }
 
 export interface ClientInfo { name: string; industry: string; assessment_date: string; assessor: string; }
 export interface AssessmentMetadata { framework_version: string; tool_version: string; last_modified: string; }
@@ -348,14 +326,14 @@ All tools expose exactly these endpoints:
 
 ### Implementation Details (`backend/main.py`)
 
-- **Port discovery:** Try `{{DEFAULT_PORT}}` through `{{DEFAULT_PORT}}+9`, use first available; log port diagnostics (`lsof`/`netstat`) if all ports busy
+- **Port discovery:** Try `8751` through `8760`, use first available; log port diagnostics (`lsof`/`netstat`) if all ports busy
 - **Auto-launch browser:** Call `webbrowser.open(url)` after server starts
 - **Static files:** Serve built frontend from `backend/static/`
 - **SPA fallback:** All non-`/api/*` GET requests serve `index.html`
 - **No CORS needed:** Vite dev server proxies `/api` requests, so no CORS middleware required
 - **Atomic save:** Write to temp file, then `os.replace()` to swap into `data.json`; write `data.json.bak` before overwriting
 - **Load behavior:** Try `data.json` → fall back to `data.json.bak` → create fresh from framework
-- **Export types:** `{{EXPORT_TYPES}}` + `"all"`
+- **Export types:** `["findings", "executive-summary", "gap-analysis", "workbook", "outbrief", "heatmap", "quick-wins", "cost-transparency-roadmap"]` + `"all"`
 - **Error codes:** 400 invalid export type, 404 framework missing, 500 server error
 
 ---
@@ -368,23 +346,11 @@ All tools expose exactly these endpoints:
     <Route path="/" element={<ClientInfoPage />} />
     <Route path="/dashboard" element={<DashboardPage />} />
 
-    {/* --- Hierarchy Option A: Grouped --- */}
-    <Route path="/{{MID_LEVEL_ROUTE}}/:entityId" element={<{{SUMMARY_PAGE}} />} />
-    <Route path="/{{MID_LEVEL_ROUTE}}/:entityId/:areaId" element={<CapabilityAreaPage />} />
+    {/* All disciplines (core + supplemental) use the same routes */}
+    <Route path="/discipline/:entityId" element={<DisciplineSummary />} />
+    <Route path="/discipline/:entityId/:areaId" element={<CapabilityAreaPage />} />
 
-    {/* --- Hierarchy Option B: Flat --- */}
-    <Route path="/{{TOP_LEVEL_ROUTE}}/:entityId" element={<{{SUMMARY_PAGE}} />} />
-    <Route path="/{{TOP_LEVEL_ROUTE}}/:entityId/:areaId" element={<CapabilityAreaPage />} />
-    {/* If cross-cutting capabilities exist: */}
-    <Route path="/cross-cutting/:entityId" element={<{{SUMMARY_PAGE}} />} />
-    <Route path="/cross-cutting/:entityId/:areaId" element={<CapabilityAreaPage />} />
-
-    {/* --- Optional Extension --- */}
-    <Route path="/{{EXTENSION_ROUTE}}" element={<{{EXTENSION_SUMMARY_PAGE}} />} />
-    <Route path="/{{EXTENSION_ROUTE}}/:sectionId" element={<{{EXTENSION_DETAIL_PAGE}} />} />
-    <Route path="/{{EXTENSION_ROUTE}}/:sectionId/:areaId" element={<{{EXTENSION_DETAIL_PAGE}} />} />
-
-    {/* --- Standard pages --- */}
+    {/* Standard pages */}
     <Route path="/export" element={<ExportPage />} />
     <Route path="/settings" element={<SettingsPage />} />
     <Route path="/help" element={<HelpPage />} />
@@ -414,19 +380,28 @@ Client Info          (link → /)
 Dashboard            (link → /dashboard)
 ──────────────────
 
-{{TOP_LEVEL_LABEL}} 1 NAME                    [score badge] [progress ring] [chevron]
-  ├── {{MID_LEVEL_LABEL}} 1 Name              [score] [ring]
-  │     (capability areas expand on click)
-  ├── {{MID_LEVEL_LABEL}} 2 Name              [score] [ring]
-  └── {{MID_LEVEL_LABEL}} 3 Name              [score] [ring]
+CORE DISCIPLINES
 
-{{TOP_LEVEL_LABEL}} 2 NAME
+IT Cost Transparency                    [score badge] [progress ring] [chevron]
+  └── (capability areas expand on click)
+Budget & Forecasting                    [score] [ring] [chevron]
   └── ...
-
-(repeat for all top-level entities)
+Benchmarking & Performance              [score] [ring] [chevron]
+Service Portfolio Management            [score] [ring] [chevron]
+Demand Management                       [score] [ring] [chevron]
+Investment Prioritization               [score] [ring] [chevron]
+Vendor & Contract Management            [score] [ring] [chevron]
+Technology Asset Management             [score] [ring] [chevron]
 
 ──────────────────
-{{EXTENSION_LABEL}}  [toggle switch]          (if extension enabled, show children)
+SUPPLEMENTAL DISCIPLINES
+
+Federal Compliance & Reporting          [toggle] [score] [ring]
+Shared Services & Consolidation         [toggle] [score] [ring]
+Cloud & Modernization Investment        [toggle] [score] [ring]
+Cybersecurity Investment Management     [toggle] [score] [ring]
+
+(disabled disciplines are grayed out, score/ring hidden)
 ──────────────────
 
 Export               (link → /export)
@@ -437,41 +412,40 @@ Help                 (link → /help)
 ### Behavior
 - **Collapsible:** Toggle between 56px icon-only and full width
 - **Resizable:** Drag right edge (min: `180px`, max: `480px`, default: `350px`)
-- **Persist state:** `localStorage` key `{{SIDEBAR_STORAGE_KEY}}`
-- **Progress rings:** SVG circle showing % scored per entity
-- **Score badges:** Rounded average score, color-coded by `{{SCORE_COLORS}}`
-- **Chevron expand:** Click to show/hide children in tree
+- **Persist state:** `localStorage` key `tbm-sidebar`
+- **Progress rings:** SVG circle showing % scored per discipline
+- **Score badges:** Rounded average score, color-coded by score colors
+- **Chevron expand:** Click to show/hide capability areas in tree
+- **Supplemental toggles:** Individual on/off switches per supplemental discipline; when toggled off, discipline is grayed out and its items are excluded from scoring
 
 ---
 
 ## 9. Export Deliverables
 
-### Core Exports (all tools)
+### Core Exports
 
 | # | Name | Format | Content |
 |---|------|--------|---------|
-| 1 | Assessment Findings | DOCX | Per-entity item breakdown with scores, notes, evidence |
+| 1 | Assessment Findings | DOCX | Per-discipline item breakdown with scores, notes, evidence |
 | 2 | Executive Summary | DOCX | Composite score, radar chart (embedded PNG), top gaps |
 | 3 | Gap Analysis & Roadmap | DOCX | Gap matrix table (current vs target), remediation timeline |
-| 4 | Scored Assessment Workbook | XLSX | Multi-sheet: Dashboard + per-entity sheets with all items |
-| 5 | Out-Brief Presentation | PPTX | Title + overview + radar chart + per-entity slides |
+| 4 | Scored Assessment Workbook | XLSX | Multi-sheet: Dashboard + per-discipline sheets with all items |
+| 5 | Out-Brief Presentation | PPTX | Title + overview + radar chart + per-discipline slides |
 
 ### Domain-Specific Exports
 
-```
-{{ADDITIONAL_EXPORTS}}     # Array of additional exports, e.g.:
-                           # [
-                           #   {name:"Maturity Heatmap", format:"XLSX", content:"Domain × CA color grid"},
-                           #   {name:"Quick Wins Report", format:"DOCX", content:"Low-score high-impact items"},
-                           #   {name:"ITIL 4 Alignment", format:"DOCX", content:"Extension module report"}
-                           # ]
-```
+| # | Name | Format | Content |
+|---|------|--------|---------|
+| 6 | TBM Maturity Heatmap | XLSX | Discipline × Capability Area color grid showing maturity at a glance |
+| 7 | Quick Wins Report | DOCX | Low-score, high-impact items for easy early wins |
+| 8 | Cost Transparency Roadmap | DOCX | Phased plan for TBM taxonomy adoption and cost allocation maturity |
 
 ### Export Implementation Details
 - **Filenames:** `D-XX_Name_YYYY-MM-DD_HHMMSS.ext` (timestamped)
 - **Radar chart:** matplotlib Agg backend → `exports/radar_chart.png` (6×6 in, 150 DPI)
 - **Template support:** If `templates/<name>-template.<ext>` exists, use it; otherwise auto-generate
-- **"Export All" button:** Generates core exports + domain-specific (skip extension-only exports if extension disabled)
+- **"Export All" button:** Generates all exports; skips disabled supplemental discipline content
+- **Supplemental handling:** Exports include enabled supplemental disciplines alongside core disciplines
 
 ---
 
@@ -487,15 +461,25 @@ Help                 (link → /help)
 ```typescript
 averageScore(items: AssessmentItem[]): number      // Mean of scored items (exclude N/A)
 capabilityAreaScore(ca: CapabilityArea): number     // Average of CA items
-entityScore(entity: Entity): number                 // Average of all items in entity
-weightedCompositeScore(data: AssessmentData): number // Σ(entityScore × weight) / Σ(weights)
+disciplineScore(discipline: Discipline): number     // Average of all items in discipline
+weightedCompositeScore(data: AssessmentData): number // Σ(disciplineScore × weight) / Σ(weights)
+                                                     // Only includes enabled disciplines
+                                                     // "balanced" model: auto-equal weights
+                                                     // "custom" model: user-defined weights
 overallCompletion(data: AssessmentData): {scored: number, total: number}
+                                                     // Only counts enabled disciplines
 ```
 
+### Weight Auto-Rebalancing
+When a supplemental discipline is toggled on/off and the weighting model is "balanced":
+- Recalculate equal weights across all enabled disciplines
+- e.g., 8 core = 0.125 each; 8 core + 2 supplemental = 0.1 each
+
 ### Command Palette (`Cmd+K`)
-- Fuzzy search across all entities + capability areas
+- Fuzzy search across all disciplines + capability areas
 - Navigate to any page instantly
 - Show score + completion status in results
+- Only shows enabled disciplines (supplemental toggles respected)
 
 ### Validation (`frontend/src/validation.ts`)
 | Rule | Severity | Condition |
@@ -506,9 +490,10 @@ overallCompletion(data: AssessmentData): {scored: number, total: number}
 | `low-confidence-no-notes` | warning | Confidence = "Low" with no notes |
 
 ### Charts (Dashboard)
-- **Radar chart:** Recharts `RadarChart` — one axis per weighted entity, scale 0–`{{SCORE_SCALE_MAX}}`
-- **Bar chart:** Recharts `BarChart` — entity scores with maturity band colors
-- **Progress:** Overall completion percentage + per-entity progress rings
+- **Radar chart:** Recharts `RadarChart` — one axis per enabled discipline, scale 0–4
+- **Bar chart:** Recharts `BarChart` — discipline scores with maturity band colors
+- **Progress:** Overall completion percentage + per-discipline progress rings
+- **Note:** Only enabled disciplines appear in charts
 
 ### State Management (`frontend/src/store.tsx`)
 - React Context with `useReducer` pattern
@@ -527,72 +512,70 @@ The framework JSON defines all assessment items and rubrics. Place at `framework
 ```json
 {
   "version": "1.0",
-  "framework_alignment": "{{FRAMEWORK_ALIGNMENT}}",
+  "framework_alignment": "TBM Council Framework / OMB M-17-22",
 
-  // --- Hierarchy Option A: Grouped ---
-  "{{TOP_LEVEL_FIELD}}": [
+  "disciplines": [
     {
-      "id": "{{group-id}}",
-      "name": "{{Group Name}}",
-      "{{MID_LEVEL_FIELD}}": [
+      "id": "cost-transparency",
+      "name": "IT Cost Transparency",
+      "weight": 0.125,
+      "supplemental": false,
+      "capability_areas": [
         {
-          "id": "{{entity-id}}",
-          "name": "{{Entity Name}}",
-          "weight": 0.083,
-          "capability_areas": [
+          "id": "cost-transparency-ca1",
+          "name": "Cost Pool Definition & Allocation",
+          "items": [
             {
-              "id": "{{entity-ca1}}",
-              "name": "{{Capability Area Name}}",
-              "items": [
-                {
-                  "id": "{{entity-1-1}}",
-                  "text": "{{Assessment item question text}}",
-                  "rubric": {
-                    "{{RUBRIC_KEYS[0]}}": "Level 1 description...",
-                    "{{RUBRIC_KEYS[1]}}": "Level 2 description...",
-                    "{{RUBRIC_KEYS[2]}}": "Level 3 description...",
-                    "{{RUBRIC_KEYS[3]}}": "Level 4 description..."
-                  }
-                }
-              ]
+              "id": "cost-transparency-1-1",
+              "text": "Assessment item question text",
+              "rubric": {
+                "ad_hoc": "Level 1 description...",
+                "foundational": "Level 2 description...",
+                "managed": "Level 3 description...",
+                "optimized": "Level 4 description..."
+              }
             }
           ]
         }
       ]
+    },
+    {
+      "id": "federal-compliance",
+      "name": "Federal Compliance & Reporting",
+      "weight": 0.0,
+      "supplemental": true,
+      "capability_areas": [...]
     }
   ],
 
-  // --- Hierarchy Option B: Flat ---
-  "pillars": [...],
-  "cross_cutting_capabilities": [...],
-
-  // --- Optional Extension ---
-  "{{EXTENSION_FIELD}}": {
-    "{{EXTENSION_CHILDREN_FIELD}}": [
-      {
-        "id": "{{section-id}}",
-        "name": "{{Section Name}}",
-        "capability_areas": [...]
-      }
-    ]
-  },
-
-  // --- Weighting models (read by frontend) ---
   "weighting_models": {
-    "{{DEFAULT_WEIGHTING}}": { ... },
-    ...
+    "balanced": {
+      "label": "Balanced",
+      "description": "Equal weight across all enabled disciplines (auto-calculated)"
+    },
+    "custom": {
+      "label": "Custom",
+      "description": "User-defined per-discipline weights"
+    }
   }
 }
 ```
 
 ### Content Specification
 
-```
-{{FRAMEWORK_ITEMS}}        # Full list of assessment items to include.
-                           # Provide: group/entity structure, capability area names,
-                           # item texts, and 4-level rubric descriptions for every item.
-                           # Typical counts: 200-400 base items + 0-100 extension items.
-```
+The framework should include comprehensive assessment items covering all 12 disciplines (8 core + 4 supplemental). Target counts:
+- **Core disciplines:** ~200-300 items total across 8 disciplines
+- **Supplemental disciplines:** ~50-100 items total across 4 disciplines
+- Each item must include a 4-level rubric (ad_hoc, foundational, managed, optimized)
+
+Items should be written for a **state and federal government** audience, referencing:
+- OMB memoranda (M-17-22, M-23-18, etc.)
+- FITARA scorecard requirements
+- Federal IT Dashboard reporting
+- TBM Council taxonomy and cost towers
+- Government shared services mandates
+- Cloud Smart / Data Center Optimization Initiative
+- NIST Cybersecurity Framework alignment (for cybersecurity investment discipline)
 
 ---
 
@@ -608,8 +591,8 @@ python3 build.py --dist       # Build + create distribution ZIP
 ```
 
 ### Development Mode (`--dev`)
-- Backend: `python -m backend.main` on port `{{DEFAULT_PORT}}`
-- Frontend: `npm run dev` on port `5173` with Vite proxy `/api → localhost:{{DEFAULT_PORT}}`
+- Backend: `python -m backend.main` on port `8751`
+- Frontend: `npm run dev` on port `5173` with Vite proxy `/api → localhost:8751`
 
 ### Frontend Build (`--frontend`)
 - Runs `npm run build` in `frontend/`
@@ -623,16 +606,16 @@ python3 build.py --dist       # Build + create distribution ZIP
 - Output: `dist/assessment-tool` (macOS) or `dist/assessment-tool.exe` (Windows)
 
 ### Distribution ZIP (`--dist`)
-Creates `dist/{{DIST_FOLDER_NAME}}/`:
+Creates `dist/TBM-Assessment/`:
 ```
-{{DIST_FOLDER_NAME}}/
+TBM-Assessment/
 ├── assessment-tool           # Executable
 ├── README.txt                # End-user guide
 ├── framework/                # Read-only framework JSON
 ├── templates/                # Optional export templates
 └── exports/                  # Empty (generated at runtime)
 ```
-Zipped to `dist/{{DIST_FOLDER_NAME}}.zip`.
+Zipped to `dist/TBM-Assessment.zip`.
 
 ### GitHub Actions (`.github/workflows/`)
 
@@ -689,10 +672,10 @@ jobs:
         include:
           - os: macos-latest        # ARM only
             platform: macos
-            artifact: {{DIST_FOLDER_NAME}}-macos
+            artifact: TBM-Assessment-macos
           - os: windows-latest
             platform: windows
-            artifact: {{DIST_FOLDER_NAME}}-windows
+            artifact: TBM-Assessment-windows
 
     runs-on: ${{ matrix.os }}
 
@@ -771,12 +754,12 @@ jobs:
       - uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ steps.tag.outputs.version }}
-          name: {{TOOL_NAME}} ${{ steps.tag.outputs.version }}
+          name: Technology Business Management Assessment Tool ${{ steps.tag.outputs.version }}
           draft: true
           generate_release_notes: true
           files: |
-            artifacts/{{DIST_FOLDER_NAME}}-macos/{{DIST_FOLDER_NAME}}-macos.zip
-            artifacts/{{DIST_FOLDER_NAME}}-windows/{{DIST_FOLDER_NAME}}-windows.zip
+            artifacts/TBM-Assessment-macos/TBM-Assessment-macos.zip
+            artifacts/TBM-Assessment-windows/TBM-Assessment-windows.zip
 ```
 
 ---
@@ -793,10 +776,10 @@ Build in 8 sequential chunks. Each chunk should be fully functional before movin
 - Verify: `python3 build.py --dev` serves empty app
 
 ### Chunk 2 — Data Model & Framework
-- Backend: `models.py` with all Pydantic models
+- Backend: `models.py` with all Pydantic models (including `supplemental` and `enabled` fields)
 - Backend: `data_manager.py` (load/save/backup logic)
 - Frontend: `types.ts` with all interfaces + constants
-- Framework: `assessment-framework.json` with complete content
+- Framework: `assessment-framework.json` with complete content (all 12 disciplines)
 - API: `GET/PUT /api/assessment`, `GET /api/framework`
 - Verify: API returns framework and saves/loads assessment
 
@@ -804,14 +787,14 @@ Build in 8 sequential chunks. Each chunk should be fully functional before movin
 - Frontend: `store.tsx` (Context + auto-save)
 - Frontend: `api.ts` (fetch client)
 - Frontend: `App.tsx` (router + sidebar + content layout)
-- Frontend: `Sidebar.tsx` (collapsible, resizable, persistent)
+- Frontend: `Sidebar.tsx` (collapsible, resizable, persistent, with supplemental discipline section)
 - Pages: `ClientInfo.tsx`, `Dashboard.tsx` (basic)
 - Verify: Navigate between pages, data persists
 
 ### Chunk 4 — Assessment Scoring UI
-- Frontend: `scoring.ts` (all calculation functions)
+- Frontend: `scoring.ts` (all calculation functions including weight auto-rebalancing)
 - Components: `AssessmentItemCard.tsx`, `ScoringWidget.tsx`, `ConfidenceWidget.tsx`
-- Pages: Entity summary page, `CapabilityArea.tsx` (keyboard shortcuts)
+- Pages: `DisciplineSummary.tsx`, `CapabilityArea.tsx` (keyboard shortcuts)
 - Component: `Breadcrumb.tsx`
 - Verify: Score items, see scores update in sidebar + dashboard
 
@@ -819,28 +802,31 @@ Build in 8 sequential chunks. Each chunk should be fully functional before movin
 - Dashboard: Radar chart (Recharts), bar chart, progress summary
 - Dashboard: Maturity band display, top gaps list
 - Component: `StatsFooter.tsx` (global progress + save status)
+- Charts only show enabled disciplines
 - Verify: Dashboard reflects scoring accurately
 
-### Chunk 6 — Optional Extension Module
-- Backend: Extension models + framework loading
-- Frontend: Extension pages (summary + detail)
-- Sidebar: Extension toggle + navigation
-- Scoring: Extension scores (separate from composite unless specified)
-- Verify: Toggle extension, score items, see results
+### Chunk 6 — Supplemental Discipline Toggles
+- Settings page: Individual toggle switches for each supplemental discipline
+- Sidebar: Supplemental disciplines section with per-discipline toggles
+- Scoring: Weight auto-rebalancing when disciplines toggled on/off
+- Dashboard/Charts: Update to reflect only enabled disciplines
+- Verify: Toggle disciplines, see scores and charts update correctly
 
 ### Chunk 7 — Exports
-- Backend: `export_engine.py` — all export generators
+- Backend: `export_engine.py` — all export generators (8 types)
 - Radar chart PNG generation (matplotlib)
 - API: `POST /api/export/{type}`
 - Frontend: `Export.tsx` page with buttons + validation
+- Exports respect supplemental discipline enabled/disabled state
 - Verify: Each export generates a real, correct file
 
 ### Chunk 8 — Polish & Packaging
 - Components: `CommandPalette.tsx`, `OnboardingTooltip.tsx`
 - Frontend: `validation.ts` + validation warnings in Export page
-- Pages: `Settings.tsx` (weighting), `Help.tsx`
+- Pages: `Settings.tsx` (weighting + supplemental toggles), `Help.tsx`
 - PyInstaller specs + `build.py --dist`
 - `README.txt` for end users
+- GitHub Actions CI + Release workflows
 - Verify: Standalone executable runs, all features work
 
 ---
@@ -857,7 +843,7 @@ Use these existing tools as canonical examples. When in doubt, match their patte
 ### Key Patterns to Replicate
 - **Auto-save with debounce** — 300ms, immutable state updates via `structuredClone`
 - **Sidebar resize + collapse** — drag handle, localStorage persistence, icon-only mode
-- **Progress rings** — SVG circles in sidebar showing % complete per entity
+- **Progress rings** — SVG circles in sidebar showing % complete per discipline
 - **Score color coding** — consistent colors across sidebar badges, charts, exports
 - **Template fallback exports** — check for template file, auto-generate if missing
 - **Port scanning** — try default port, increment up to +9 if occupied
@@ -865,15 +851,10 @@ Use these existing tools as canonical examples. When in doubt, match their patte
 - **Backup on save** — always write `.bak` before overwriting main data file
 - **Dark theme** — all colors from `Design-guide.md`, no light mode
 
----
-
-## Quick Start Checklist
-
-To create a new assessment tool:
-
-1. Copy this template
-2. Fill in all `{{PLACEHOLDER}}` values for your domain
-3. Write the full framework JSON content (items + rubrics)
-4. Create the git repo and add as submodule to `/Users/john/Dev/Assessments/`
-5. Follow the 8-chunk implementation order
-6. Cross-reference the two existing tools whenever you need implementation details
+### New Pattern: Supplemental Discipline Toggles
+This tool introduces a pattern not in the reference implementations:
+- **Individual toggles** for supplemental disciplines (not an all-or-nothing extension module)
+- **Auto-rebalancing weights** when disciplines are toggled on/off in balanced mode
+- **Visual grouping** in sidebar under "Supplemental Disciplines" header
+- **Scoring exclusion** — disabled disciplines excluded from composite score and completion counts
+- **Export handling** — disabled disciplines omitted from all exports
