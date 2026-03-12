@@ -1,7 +1,7 @@
 import { useParams, Link } from 'react-router-dom';
 import { useStore } from '@/store';
 import { Breadcrumb } from '@/components/Breadcrumb';
-import { disciplineScore, disciplineCompletion, capabilityAreaScore, averageScore } from '@/scoring';
+import { disciplineScore, disciplineCompletion, capabilityAreaScore } from '@/scoring';
 import { getMaturityBand } from '@/types';
 import { ChevronRight } from 'lucide-react';
 
